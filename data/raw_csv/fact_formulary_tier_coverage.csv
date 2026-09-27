@@ -1,0 +1,8 @@
+PLAN_ID,PAYER_NAME,PBM_NAME,LOB,NDC_CODE,DRUG_BRAND,TIER_LEVEL,PA_REQUIRED_FLAG,STEP_THERAPY_REQUIRED_FLAG,QUANTITY_LIMIT_FLAG,COPAY_AVG_USD
+PLAN-CVS-COMM,Aetna / CVS Health,CVS Caremark,Commercial,0074-1050-01,Skyrizi,Tier 2 (Preferred Brand),N,N,Y,35.0
+PLAN-CVS-COMM,Aetna / CVS Health,CVS Caremark,Commercial,0074-3799-02,Humira,Tier 3 (Non-Preferred),Y,N,Y,95.0
+PLAN-ESI-COMM,Cigna Healthcare,Express Scripts,Commercial,0074-1050-01,Skyrizi,Tier 2 (Preferred Brand),Y,N,Y,45.0
+PLAN-ESI-COMM,Cigna Healthcare,Express Scripts,Commercial,0074-3799-02,Humira,Tier 3 (Non-Preferred),Y,Y,Y,110.0
+PLAN-OPTUM-MA,UnitedHealthcare,OptumRx,Medicare Advantage,0074-1050-01,Skyrizi,Tier 4 (Specialty Tier),Y,N,Y,85.0
+PLAN-OPTUM-MA,UnitedHealthcare,OptumRx,Medicare Advantage,0069-4210-66,Eliquis,Tier 2 (Preferred Brand),N,N,Y,30.0
+PLAN-BCBS-COMM,Independence Blue Cross,Prime Therapeutics,Commercial,0074-1050-01,Skyrizi,Tier 2 (Preferred Brand),N,N,Y,40.0

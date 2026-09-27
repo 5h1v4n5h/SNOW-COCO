@@ -1,0 +1,19 @@
+PRIMARY CARE ANNUAL WELLNESS VISIT
+PATIENT NAME: Brody, Marcus | MRN: PT-1002 | DOB: 1972-09-24 (54M)
+DATE OF SERVICE: 2026-07-15 | PROVIDER: Dr. Sarah Jenkins, MD
+
+HISTORY OF PRESENT ILLNESS:
+Patient Marcus Brody presents for annual preventative exam. Reports feeling reasonably well. Exercises inconsistently. Admits dietary indiscretions with carbohydrates.
+
+CHRONIC CONDITION & CARE GAP AUDIT:
+1. Type 2 Diabetes Mellitus:
+   - Chart audit reveals LAST verified HbA1c test was performed on 2025-05-10 (Value: 8.7%).
+   - Over 14 months elapsed without repeat glycemic evaluation.
+   - Patient is currently non-compliant with NCQA HEDIS NQF-0059 annual testing standard.
+2. Preventative Gaps:
+   - Overdue for diabetic foot monofilament exam.
+   - Dilated retinal exam overdue by 6 months.
+
+PLAN:
+- Schedule immediate in-clinic fingerstick HbA1c or venous blood draw.
+- Dispatch care coordinator task for diabetic education and home test kit shipment.

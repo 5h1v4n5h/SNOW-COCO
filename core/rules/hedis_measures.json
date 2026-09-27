@@ -1,0 +1,50 @@
+{
+  "measures": [
+    {
+      "measure_id": "HEDIS-CDC-H9",
+      "nqf_id": "0059",
+      "name": "Comprehensive Diabetes Care: HbA1c Poor Control (>9.0%)",
+      "domain": "Clinical Effectiveness & Chronic Care",
+      "target_population": "Patients 18-75 years of age with active Type 1 or Type 2 Diabetes",
+      "loinc_code": "4548-4",
+      "threshold_poor_control": 9.0,
+      "lookback_period_days": 365,
+      "severity": "HIGH",
+      "impact": "Lowers CMS Star Rating for Medicare Advantage plans; indicates elevated risk for microvascular complications",
+      "recommended_action": "Schedule urgent provider reconciliation. Order repeated glycemic testing. Enroll member in diabetic disease management program and remote blood glucose monitoring."
+    },
+    {
+      "measure_id": "HEDIS-CDC-E",
+      "nqf_id": "0055",
+      "name": "Comprehensive Diabetes Care: Annual Retinal Eye Exam",
+      "domain": "Preventative Screening",
+      "target_population": "Diabetic patients 18-75 years of age",
+      "lookback_period_days": 365,
+      "severity": "MODERATE",
+      "impact": "CMS Star Rating Core Measure; prevents preventable diabetic blindness",
+      "recommended_action": "Issue electronic referral for dilated retinal photography or ophthalmology evaluation."
+    },
+    {
+      "measure_id": "HEDIS-CDC-K",
+      "nqf_id": "0062",
+      "name": "Comprehensive Diabetes Care: Kidney Health Evaluation (KED)",
+      "domain": "Renal Protection",
+      "target_population": "Diabetic patients 18-85 years of age",
+      "lookback_period_days": 365,
+      "severity": "HIGH",
+      "impact": "Early detection of Diabetic Nephropathy; critical for initiating SGLT2i or ACEi therapy",
+      "recommended_action": "Order annual Urine Albumin-to-Creatinine Ratio (uACR) and serum creatinine/eGFR panel."
+    },
+    {
+      "measure_id": "HEDIS-SUPD",
+      "nqf_id": "N/A",
+      "name": "Statin Use in Persons with Diabetes (SUPD)",
+      "domain": "Cardiovascular Prevention",
+      "target_population": "Diabetic patients aged 40-75 without ASCVD contraindications",
+      "lookback_period_days": 365,
+      "severity": "MODERATE",
+      "impact": "Triple-weighted CMS Star Measure; reduces major adverse cardiovascular events (MACE)",
+      "recommended_action": "Initiate moderate-to-high intensity statin therapy (e.g. Atorvastatin 20-40mg daily)."
+    }
+  ]
+}

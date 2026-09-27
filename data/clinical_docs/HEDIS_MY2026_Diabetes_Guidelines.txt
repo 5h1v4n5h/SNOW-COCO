@@ -1,0 +1,17 @@
+NATIONAL COMMITTEE FOR QUALITY ASSURANCE (NCQA)
+HEALTHCARE EFFECTIVENESS DATA AND INFORMATION SET (HEDIS MY2026)
+MEASURE SPECIFICATION: Comprehensive Diabetes Care (CDC) / NQF-0059
+
+1. MEASURE DESCRIPTION
+The percentage of members 18–75 years of age with diabetes (type 1 and type 2) who had each of the following during the measurement year:
+- Hemoglobin A1c (HbA1c) testing completed at least once every 12 months.
+- HbA1c Poor Control (>9.0%).
+- HbA1c Control (<8.0%).
+- Retinal eye exam performed by an eye care professional.
+- Blood pressure control (<140/90 mm Hg).
+
+2. CLINICAL RATIONALE & CMS STAR RATING IMPACT
+Diabetic patients without an annual HbA1c observation directly penalize Medicare Advantage Star Ratings (Triple-Weighted Clinical Measure). Health plans failing to achieve the 75th percentile threshold incur substantial financial penalties under the CMS Quality Bonus Payment (QBP) framework.
+
+3. OUTREACH BENCHMARK
+Any attributed member exceeding 12 months since the last verified LOINC 4548-4 lab observation must be routed to prioritized clinical navigation for point-of-care lab order dispatch.

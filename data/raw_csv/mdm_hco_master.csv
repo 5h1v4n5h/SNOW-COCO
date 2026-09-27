@@ -1,0 +1,7 @@
+HCO_ID,HCO_NAME,HCO_TYPE,TIN,PARENT_IDN_NAME,CITY,STATE,ZIP5,BEDS_COUNT,PT_COMMITTEE_STATUS,PROTOCOL_RESTRICTION_LEVEL
+HCO-001,Penn Medicine Health System,Academic Integrated Delivery Network (IDN),23-1489210,University of Pennsylvania Health System,Philadelphia,PA,19104,1640,Preferred (Tier 2 Biologics),Low
+HCO-002,Thomas Jefferson University Hospitals,Integrated Delivery Network (IDN),23-2948172,Jefferson Health,Philadelphia,PA,19107,980,Step-Therapy Required (TNF Failure),Moderate
+HCO-003,Temple Health Episcopal Campus,Safety Net / 340B Hospital,23-3019284,Temple University Health System,Philadelphia,PA,19140,720,Restricted (Prior Auth Enforced),High
+HCO-004,UPMC Presbyterian Shadyside,Academic Medical Center,25-0192847,UPMC Health Network,Pittsburgh,PA,15213,1200,Preferred (Tier 2 Biologics),Low
+HCO-005,Geisinger Medical Center,Integrated Closed Payer-Provider Network,24-9182736,Geisinger Health,Danville,PA,17822,540,Clinical Pathway Concordant,Moderate
+HCO-006,Main Line Health (Lankenau Medical Center),Community Health System,23-5592819,Main Line Health,Wynnewood,PA,19096,490,Preferred (Tier 2 Biologics),Low

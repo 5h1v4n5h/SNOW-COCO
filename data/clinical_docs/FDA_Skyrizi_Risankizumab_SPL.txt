@@ -1,0 +1,49 @@
+# FDA Structured Product Labeling (SPL) - Skyrizi (risankizumab-rzaa)
+SPL Set ID: b18274a1-094e-4f28-b80c-e2f75a643801
+NDC: 0074-1050-01
+RxCUI: 2059343
+
+## 1. INDICATIONS AND USAGE
+SKYRIZI is an interleukin-23 (IL-23) antagonist indicated for the treatment of:
+- Moderate-to-severe plaque psoriasis (PsO) in adults who are candidates for systemic therapy or phototherapy.
+- Active psoriatic arthritis (PsA) in adults.
+- Moderately to severely active Crohn's disease (CD) in adults.
+- Moderately to severely active ulcerative colitis (UC) in adults.
+
+LIMITATIONS OF USE:
+Safety and effectiveness of SKYRIZI in pediatric patients have not been established. Not approved for rheumatoid arthritis or ankylosing spondylitis.
+
+## 4. CONTRAINDICATIONS
+SKYRIZI is contraindicated in patients with a history of serious hypersensitivity reaction to risankizumab-rzaa or to any of the excipients. Reactions have included anaphylaxis and serious rash.
+
+## 5. WARNINGS AND PRECAUTIONS
+### 5.1 Serious Infections
+SKYRIZI may increase the risk of infection. Do not initiate SKYRIZI in patients with a clinically important active infection until the infection resolves or is adequately treated. In clinical studies of plaque psoriasis, infections occurred in 22.1% of subjects treated with SKYRIZI compared to 14.7% with placebo.
+Instruct patients to seek medical advice if signs or symptoms of clinically important infection occur. If a patient develops a serious infection or is not responding to standard therapy, monitor the patient closely and withhold SKYRIZI until the infection resolves.
+
+### 5.2 Pre-treatment Evaluation for Tuberculosis
+Evaluate patients for tuberculosis (TB) infection prior to initiating treatment with SKYRIZI. Do not administer SKYRIZI to patients with active TB. Initiate treatment of latent TB prior to administering SKYRIZI.
+
+### 5.3 Immunizations
+Prior to initiating therapy with SKYRIZI, consider completion of all age-appropriate vaccinations according to current immunization guidelines. Avoid use of live vaccines in patients being treated with SKYRIZI.
+
+## 6. ADVERSE REACTIONS
+Most common adverse reactions (>= 1%) are upper respiratory infections (13.0%), headache (3.5%), fatigue (2.5%), injection site reactions (1.5%), and tinea infections (1.1%). Serious adverse events occurred in 2.4% of subjects on SKYRIZI.
+
+## 14. CLINICAL STUDIES
+### 14.1 Plaque Psoriasis (UltIMMa-1 and UltIMMa-2 Trials)
+The efficacy and safety of SKYRIZI were evaluated in two multicenter, randomized, double-blind, active comparator (ustekinumab) and placebo-controlled studies (UltIMMa-1 [NCT02684370] and UltIMMa-2 [NCT02684357]) in 997 adult subjects with moderate-to-severe plaque psoriasis.
+Subjects were randomized to receive SKYRIZI 150 mg (subcutaneously at Week 0, Week 4, and every 12 weeks thereafter), placebo, or active comparator ustekinumab (45 mg or 90 mg based on weight).
+
+Primary Endpoints at Week 16:
+- PASI 90 Response: In UltIMMa-1, 75.3% of subjects treated with SKYRIZI achieved PASI 90 compared to 4.9% of placebo-treated subjects and 42.0% of ustekinumab-treated subjects (p < 0.001 vs placebo and ustekinumab). In UltIMMa-2, 74.8% achieved PASI 90 vs 2.0% placebo and 47.5% ustekinumab (p < 0.001).
+- sPGA 0/1 (Clear or Almost Clear): In UltIMMa-1, 87.8% of subjects on SKYRIZI achieved sPGA 0/1 vs 7.8% placebo and 63.0% ustekinumab (p < 0.001).
+
+Long-Term Maintenance (Week 52 Endpoints):
+- PASI 90 at Week 52: 81.9% of SKYRIZI subjects maintained PASI 90 compared to 44.0% of ustekinumab-treated subjects (p < 0.001).
+- Complete Clearance (PASI 100): At Week 52, 56.3% of SKYRIZI subjects achieved PASI 100 vs 21.0% ustekinumab (p < 0.001).
+
+### 14.2 Head-to-Head Comparative Study vs Adalimumab (IMMvent Trial, NCT02694523)
+In the IMMvent multicenter, double-blind study in 605 patients with plaque psoriasis:
+- At Week 16, 72.0% of SKYRIZI-treated subjects achieved PASI 90 vs 47.4% of adalimumab-treated subjects (p < 0.001).
+- Subjects with intermediate response to adalimumab (PASI 50 to < PASI 90) at Week 16 re-randomized to SKYRIZI achieved 66.0% PASI 90 at Week 44 vs 21.4% continuing adalimumab (p < 0.001).

@@ -1,0 +1,330 @@
+name: aegiscortex_clinical_analyst_model
+description: >
+  Semantic data model for AegisCortex AI, powering natural language queries over longitudinal Patient/Member 360 data,
+  LOINC laboratory trends, ICD-10 encounter histories, CPT billing claims, and real-time clinical safety flags.
+
+tables:
+  - name: patient_member_360
+    description: >
+      Longitudinal 360-degree aggregated patient and member profile containing demographics, risk stratifications,
+      active medications, latest lab values (eGFR, HbA1c, Creatinine, Hemoglobin), total claims financial metrics,
+      and deterministic clinical safety flags for contraindications and care gaps.
+    base_table:
+      database: AEGIS_CORTEX_DB
+      schema: TRANSFORMED
+      table: PATIENT_MEMBER_360_VIEW
+
+    dimensions:
+      - name: patient_id
+        synonyms: ["member id", "patient identifier", "chart number", "mrn"]
+        description: Unique synthetic alphanumeric identifier for the patient (e.g., PT-1001).
+        expr: PATIENT_ID
+        data_type: VARCHAR
+        unique: true
+
+      - name: first_name
+        synonyms: ["given name", "first name"]
+        description: Patient first name.
+        expr: FIRST_NAME
+        data_type: VARCHAR
+
+      - name: last_name
+        synonyms: ["family name", "surname", "last name"]
+        description: Patient last name.
+        expr: LAST_NAME
+        data_type: VARCHAR
+
+      - name: gender
+        synonyms: ["sex", "biological sex"]
+        description: Patient biological gender (M, F, Other).
+        expr: GENDER
+        data_type: VARCHAR
+
+      - name: age
+        synonyms: ["years old", "patient age"]
+        description: Current age in full calendar years.
+        expr: AGE
+        data_type: NUMBER
+
+      - name: primary_physician
+        synonyms: ["pcp", "attending physician", "doctor", "provider"]
+        description: Name of the patient's designated primary care provider.
+        expr: PRIMARY_PHYSICIAN
+        data_type: VARCHAR
+
+      - name: chronic_conditions
+        synonyms: ["comorbidities", "diseases", "diagnoses", "condition list"]
+        description: Pipe-delimited list of diagnosed chronic health conditions (e.g. Type 2 Diabetes, CKD Stage 3, Hypertension).
+        expr: CHRONIC_CONDITIONS
+        data_type: VARCHAR
+
+      - name: active_medications
+        synonyms: ["current drugs", "prescriptions", "med list", "rx"]
+        description: Pipe-delimited list of active prescribed medications with dosages (e.g. Metformin 1000mg, Lisinopril 20mg).
+        expr: ACTIVE_MEDICATIONS
+        data_type: VARCHAR
+
+      - name: risk_stratification
+        synonyms: ["risk tier", "acuity level", "patient risk group"]
+        description: Categorical clinical risk tier: Low, Moderate, High, or Severe.
+        expr: RISK_STRATIFICATION
+        data_type: VARCHAR
+
+      - name: insurance_plan
+        synonyms: ["payer", "coverage", "health plan", "benefit tier"]
+        description: Member insurance coverage plan (e.g. Medicare Advantage Gold, BlueShield PPO).
+        expr: INSURANCE_PLAN
+        data_type: VARCHAR
+
+      - name: flag_egfr_below_30
+        synonyms: ["renal failure flag", "severe ckd flag", "egfr critical"]
+        description: Boolean indicator (TRUE/FALSE) if the patient's latest eGFR is critically below 30 mL/min/1.73m2.
+        expr: FLAG_EGFR_BELOW_30
+        data_type: BOOLEAN
+
+      - name: flag_hba1c_uncontrolled
+        synonyms: ["diabetes out of control", "poor glycemic control flag", "hedis hba1c gap"]
+        description: Boolean indicator (TRUE/FALSE) if the patient's latest HbA1c is >= 9.0%, representing a HEDIS CDC quality care gap.
+        expr: FLAG_HBA1C_UNCONTROLLED
+        data_type: BOOLEAN
+
+      - name: flag_metformin_contraindicated
+        synonyms: ["metformin safety alert", "black box contraindication", "lactic acidosis risk"]
+        description: Critical safety flag (TRUE/FALSE) triggered when a patient is prescribed Metformin while having an eGFR < 30 mL/min.
+        expr: FLAG_METFORMIN_CONTRAINDICATED
+        data_type: BOOLEAN
+
+      - name: flag_high_utilizer_risk
+        synonyms: ["frequent flyer", "high cost claimant", "super utilizer"]
+        description: Boolean flag indicating if total paid claims exceed $30,000 or annual encounters exceed 6.
+        expr: FLAG_HIGH_UTILIZER_RISK
+        data_type: BOOLEAN
+
+    time_dimensions:
+      - name: latest_egfr_date
+        synonyms: ["last renal lab date", "egfr test date"]
+        description: Calendar date when the latest eGFR lab was collected.
+        expr: LATEST_EGFR_DATE
+        data_type: DATE
+
+      - name: latest_hba1c_date
+        synonyms: ["last glycemic check date", "a1c date"]
+        description: Calendar date when the latest HbA1c lab was collected.
+        expr: LATEST_HBA1C_DATE
+        data_type: DATE
+
+    measures:
+      - name: total_patients
+        synonyms: ["patient count", "number of members", "cohort size"]
+        description: Total number of unique patients.
+        expr: COUNT(DISTINCT PATIENT_ID)
+        data_type: NUMBER
+        default_aggregation: count
+
+      - name: average_age
+        synonyms: ["mean age", "cohort average age"]
+        description: Average age across the patient population.
+        expr: AVG(AGE)
+        data_type: NUMBER
+        default_aggregation: avg
+
+      - name: average_risk_score
+        synonyms: ["mean risk decile", "average acuity score"]
+        description: Average risk decile score (1 to 10 scale).
+        expr: AVG(RISK_DECIL_SCORE)
+        data_type: NUMBER
+        default_aggregation: avg
+
+      - name: latest_egfr
+        synonyms: ["current egfr", "kidney filtration rate", "estimated gfr"]
+        description: Most recent estimated glomerular filtration rate in mL/min/1.73m2.
+        expr: LATEST_EGFR
+        data_type: NUMBER
+        default_aggregation: avg
+
+      - name: latest_hba1c
+        synonyms: ["current a1c", "glycated hemoglobin level"]
+        description: Most recent glycosylated hemoglobin percentage.
+        expr: LATEST_HBA1C
+        data_type: NUMBER
+        default_aggregation: avg
+
+      - name: total_billed_charges
+        synonyms: ["total billed amount", "gross claims", "total charges"]
+        description: Sum of all healthcare provider charges billed for the patient.
+        expr: SUM(TOTAL_BILLED_CHARGES)
+        data_type: NUMBER
+        default_aggregation: sum
+
+      - name: total_paid_amount
+        synonyms: ["total plan spend", "allowed claims", "paid amount", "net medical expense"]
+        description: Total dollar amount paid by insurer/plan for healthcare services.
+        expr: SUM(TOTAL_PAID_AMOUNT)
+        data_type: NUMBER
+        default_aggregation: sum
+
+  - name: lab_results
+    description: >
+      Detailed longitudinal laboratory test results with standardized LOINC codes, reference ranges,
+      numerical values, and clinical interpretations.
+    base_table:
+      database: AEGIS_CORTEX_DB
+      schema: RAW
+      table: LAB_RESULTS
+
+    dimensions:
+      - name: lab_id
+        description: Primary key identifier for the laboratory draw.
+        expr: LAB_ID
+        data_type: VARCHAR
+        unique: true
+
+      - name: patient_id
+        description: Foreign key reference linking the lab to a patient.
+        expr: PATIENT_ID
+        data_type: VARCHAR
+
+      - name: loinc_code
+        synonyms: ["loinc", "lab code", "test code"]
+        description: Standardized LOINC terminology code (e.g. 33914-3 for eGFR, 4548-4 for HbA1c).
+        expr: LOINC_CODE
+        data_type: VARCHAR
+
+      - name: test_name
+        synonyms: ["lab test", "panel component", "analyte"]
+        description: Clinical description of the laboratory test.
+        expr: TEST_NAME
+        data_type: VARCHAR
+
+      - name: units
+        description: Standard unit of measurement (e.g., mL/min/1.73m2, %, mg/dL).
+        expr: UNITS
+        data_type: VARCHAR
+
+      - name: abnormal_flag
+        synonyms: ["is abnormal", "out of range flag", "flag"]
+        description: Laboratory flag denoting abnormal reading ('N' = Normal, 'L' = Low, 'H' = High, 'LL' = Critical Low, 'HH' = Critical High).
+        expr: ABNORMAL_FLAG
+        data_type: VARCHAR
+
+    time_dimensions:
+      - name: collection_date
+        synonyms: ["draw date", "test date", "specimen date"]
+        description: Date when the laboratory specimen was drawn.
+        expr: COLLECTION_DATE
+        data_type: DATE
+
+    measures:
+      - name: numeric_value
+        synonyms: ["lab value", "result", "measured level"]
+        description: Quantitative numerical result of the laboratory assay.
+        expr: NUMERIC_VALUE
+        data_type: NUMBER
+        default_aggregation: avg
+
+  - name: claims
+    description: Medical and pharmacy billing claims containing CPT procedure codes, financial charges, and adjudication status.
+    base_table:
+      database: AEGIS_CORTEX_DB
+      schema: RAW
+      table: CLAIMS
+
+    dimensions:
+      - name: claim_id
+        description: Unique billing claim identifier.
+        expr: CLAIM_ID
+        data_type: VARCHAR
+        unique: true
+
+      - name: patient_id
+        description: Patient associated with the claim.
+        expr: PATIENT_ID
+        data_type: VARCHAR
+
+      - name: cpt_code
+        synonyms: ["procedure code", "hcpcs", "billing code"]
+        description: Current Procedural Terminology (CPT) code.
+        expr: CPT_CODE
+        data_type: VARCHAR
+
+      - name: service_description
+        synonyms: ["procedure description", "service type"]
+        description: Narrative description of the medical service rendered.
+        expr: SERVICE_DESCRIPTION
+        data_type: VARCHAR
+
+      - name: claim_status
+        synonyms: ["adjudication status", "payment status"]
+        description: Status of the claim (Paid, Pending, Denied).
+        expr: CLAIM_STATUS
+        data_type: VARCHAR
+
+    time_dimensions:
+      - name: service_date
+        synonyms: ["date of service", "claim date"]
+        description: Date the medical service or drug was provided.
+        expr: SERVICE_DATE
+        data_type: DATE
+
+    measures:
+      - name: paid_amount
+        synonyms: ["reimbursement", "plan paid", "cost"]
+        description: Dollar amount disbursed by the payer for the claim.
+        expr: SUM(PAID_AMOUNT)
+        data_type: NUMBER
+        default_aggregation: sum
+
+relationships:
+  - name: patient_to_labs
+    left_table: patient_member_360
+    right_table: lab_results
+    relationship_type: one_to_many
+    join_type: inner
+    relationship_columns:
+      - left_column: patient_id
+        right_column: patient_id
+
+  - name: patient_to_claims
+    left_table: patient_member_360
+    right_table: claims
+    relationship_type: one_to_many
+    join_type: inner
+    relationship_columns:
+      - left_column: patient_id
+        right_column: patient_id
+
+verified_queries:
+  - name: patients_with_severe_metformin_contraindication
+    question: "Which patients are prescribed Metformin despite having an eGFR below 30?"
+    sql: >
+      SELECT PATIENT_ID, FIRST_NAME, LAST_NAME, AGE, ACTIVE_MEDICATIONS, LATEST_EGFR, LATEST_EGFR_DATE
+      FROM AEGIS_CORTEX_DB.TRANSFORMED.PATIENT_MEMBER_360_VIEW
+      WHERE FLAG_METFORMIN_CONTRAINDICATED = TRUE
+      ORDER BY LATEST_EGFR ASC;
+
+  - name: uncontrolled_diabetes_hedis_gaps
+    question: "List patients with poor glycemic control where HbA1c is above 9.0 percent"
+    sql: >
+      SELECT PATIENT_ID, FIRST_NAME, LAST_NAME, AGE, PRIMARY_PHYSICIAN, LATEST_HBA1C, LATEST_HBA1C_DATE
+      FROM AEGIS_CORTEX_DB.TRANSFORMED.PATIENT_MEMBER_360_VIEW
+      WHERE FLAG_HBA1C_UNCONTROLLED = TRUE
+      ORDER BY LATEST_HBA1C DESC;
+
+  - name: high_cost_claimants_by_risk_tier
+    question: "What is the total spend and average paid claims broken down by risk stratification tier?"
+    sql: >
+      SELECT RISK_STRATIFICATION,
+             COUNT(DISTINCT PATIENT_ID) AS PATIENT_COUNT,
+             SUM(TOTAL_PAID_AMOUNT) AS TOTAL_SPEND,
+             AVG(TOTAL_PAID_AMOUNT) AS AVG_SPEND_PER_PATIENT
+      FROM AEGIS_CORTEX_DB.TRANSFORMED.PATIENT_MEMBER_360_VIEW
+      GROUP BY RISK_STRATIFICATION
+      ORDER BY TOTAL_SPEND DESC;
+
+  - name: longitudinal_egfr_trend_eleanor_vance
+    question: "Show the longitudinal eGFR lab history for patient Eleanor Vance or PT-1001"
+    sql: >
+      SELECT COLLECTION_DATE, TEST_NAME, NUMERIC_VALUE, UNITS, ABNORMAL_FLAG, INTERPRETATION
+      FROM AEGIS_CORTEX_DB.RAW.LAB_RESULTS
+      WHERE PATIENT_ID = 'PT-1001' AND LOINC_CODE = '33914-3'
+      ORDER BY COLLECTION_DATE ASC;

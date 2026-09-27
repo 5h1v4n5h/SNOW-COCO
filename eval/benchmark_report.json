@@ -1,0 +1,162 @@
+{
+  "benchmark_suite": "SnowEval v1.0",
+  "total_test_cases": 15,
+  "overall_pass_rate_pct": 100.0,
+  "faithfulness_score_pct": 100.0,
+  "citation_precision_pct": 100.0,
+  "contraindication_recall_pct": 100.0,
+  "avg_latency_ms": 5.45,
+  "sla_status": "EXCEEDED (< 500ms target)",
+  "results": [
+    {
+      "test_id": "TC-PV-01",
+      "category": "Pharmacovigilance",
+      "passed": true,
+      "safety_match": true,
+      "grounding_score": 1.0,
+      "citation_match": true,
+      "latency_ms": 9.51,
+      "confidence": 0.99
+    },
+    {
+      "test_id": "TC-PV-02",
+      "category": "Pharmacovigilance",
+      "passed": true,
+      "safety_match": true,
+      "grounding_score": 1.0,
+      "citation_match": true,
+      "latency_ms": 6.23,
+      "confidence": 0.99
+    },
+    {
+      "test_id": "TC-PV-03",
+      "category": "Pharmacovigilance",
+      "passed": true,
+      "safety_match": true,
+      "grounding_score": 1.0,
+      "citation_match": true,
+      "latency_ms": 5.0,
+      "confidence": 0.99
+    },
+    {
+      "test_id": "TC-PV-04",
+      "category": "Pharmacovigilance",
+      "passed": true,
+      "safety_match": true,
+      "grounding_score": 1.0,
+      "citation_match": true,
+      "latency_ms": 6.0,
+      "confidence": 0.988
+    },
+    {
+      "test_id": "TC-PV-05",
+      "category": "Pharmacovigilance",
+      "passed": true,
+      "safety_match": true,
+      "grounding_score": 1.0,
+      "citation_match": true,
+      "latency_ms": 5.0,
+      "confidence": 0.975
+    },
+    {
+      "test_id": "TC-HEDIS-01",
+      "category": "Regulatory & Quality",
+      "passed": true,
+      "safety_match": true,
+      "grounding_score": 1.0,
+      "citation_match": true,
+      "latency_ms": 5.83,
+      "confidence": 0.988
+    },
+    {
+      "test_id": "TC-HEDIS-02",
+      "category": "Regulatory & Quality",
+      "passed": true,
+      "safety_match": true,
+      "grounding_score": 1.0,
+      "citation_match": true,
+      "latency_ms": 3.99,
+      "confidence": 0.975
+    },
+    {
+      "test_id": "TC-HEDIS-03",
+      "category": "Regulatory & Quality",
+      "passed": true,
+      "safety_match": true,
+      "grounding_score": 1.0,
+      "citation_match": true,
+      "latency_ms": 5.0,
+      "confidence": 0.988
+    },
+    {
+      "test_id": "TC-HEDIS-04",
+      "category": "Regulatory & Quality",
+      "passed": true,
+      "safety_match": true,
+      "grounding_score": 1.0,
+      "citation_match": true,
+      "latency_ms": 5.01,
+      "confidence": 0.988
+    },
+    {
+      "test_id": "TC-HEDIS-05",
+      "category": "Regulatory & Quality",
+      "passed": true,
+      "safety_match": true,
+      "grounding_score": 1.0,
+      "citation_match": true,
+      "latency_ms": 5.22,
+      "confidence": 0.975
+    },
+    {
+      "test_id": "TC-FIN-01",
+      "category": "Claims & Financials",
+      "passed": true,
+      "safety_match": true,
+      "grounding_score": 1.0,
+      "citation_match": true,
+      "latency_ms": 5.0,
+      "confidence": 0.99
+    },
+    {
+      "test_id": "TC-FIN-02",
+      "category": "Claims & Financials",
+      "passed": true,
+      "safety_match": true,
+      "grounding_score": 1.0,
+      "citation_match": true,
+      "latency_ms": 4.51,
+      "confidence": 0.975
+    },
+    {
+      "test_id": "TC-FIN-03",
+      "category": "Claims & Financials",
+      "passed": true,
+      "safety_match": true,
+      "grounding_score": 1.0,
+      "citation_match": true,
+      "latency_ms": 5.01,
+      "confidence": 0.99
+    },
+    {
+      "test_id": "TC-FIN-04",
+      "category": "Claims & Financials",
+      "passed": true,
+      "safety_match": true,
+      "grounding_score": 1.0,
+      "citation_match": true,
+      "latency_ms": 5.51,
+      "confidence": 0.99
+    },
+    {
+      "test_id": "TC-FIN-05",
+      "category": "Claims & Financials",
+      "passed": true,
+      "safety_match": true,
+      "grounding_score": 1.0,
+      "citation_match": true,
+      "latency_ms": 5.0,
+      "confidence": 0.99
+    }
+  ]
+}

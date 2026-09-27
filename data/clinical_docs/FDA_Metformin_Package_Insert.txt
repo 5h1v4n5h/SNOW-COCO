@@ -1,0 +1,20 @@
+UNITED STATES FOOD AND DRUG ADMINISTRATION (FDA)
+HIGHLIGHTS OF PRESCRIBING INFORMATION: GLUCOPHAGE (METFORMIN HYDROCHLORIDE) TABLETS
+Initial U.S. Approval: 1995 | Revised: 01/2026
+
+WARNING: LACTIC ACIDOSIS
+Postmarketing cases of metformin-associated lactic acidosis have resulted in death, hypothermia, hypotension, and resistant bradyarrhythmias. The onset is often subtle, accompanied only by nonspecific symptoms such as malaise, myalgias, respiratory distress, somnolence, and abdominal pain.
+
+4. CONTRAINDICATIONS
+GLUCOPHAGE is contraindicated in patients with:
+- Severe renal impairment (eGFR below 30 mL/min/1.73 m2).
+- Known hypersensitivity to metformin hydrochloride.
+- Acute or chronic metabolic acidosis, including diabetic ketoacidosis, with or without coma.
+
+5. WARNINGS AND PRECAUTIONS
+5.1 Lactic Acidosis
+The risk of metformin-associated lactic acidosis increases with the degree of renal impairment because metformin is substantially excreted by the kidney. 
+Before initiating GLUCOPHAGE, obtain an estimated glomerular filtration rate (eGFR).
+- In patients with an eGFR below 30 mL/min/1.73 m2, initiation of GLUCOPHAGE is contraindicated.
+- In patients currently taking GLUCOPHAGE whose eGFR subsequently falls below 30 mL/min/1.73 m2, discontinue GLUCOPHAGE immediately.
+- In patients with an eGFR between 30 and 45 mL/min/1.73 m2, assessing the benefits and risks of continuing therapy is recommended; if prescribed, limit total daily dosage to 1000 mg and monitor renal function at least every 3 months.

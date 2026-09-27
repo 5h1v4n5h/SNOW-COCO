@@ -1,0 +1,29 @@
+spec:
+  containers:
+    - name: frontend
+      image: /aegis_cortex_db/app/copilot_repo/frontend:latest
+      resources:
+        requests:
+          memory: 1G
+          cpu: 0.5
+        limits:
+          memory: 2G
+          cpu: 1.0
+    - name: backend
+      image: /aegis_cortex_db/app/copilot_repo/backend:latest
+      env:
+        SNOWFLAKE_DATABASE: "AEGIS_CORTEX_DB"
+        SNOWFLAKE_SCHEMA: "APP"
+        SNOWFLAKE_WAREHOUSE: "COMPUTE_WH"
+        ENVIRONMENT: "production"
+      resources:
+        requests:
+          memory: 2G
+          cpu: 1.0
+        limits:
+          memory: 4G
+          cpu: 2.0
+  endpoints:
+    - name: copilot-ui
+      port: 8080
+      public: true

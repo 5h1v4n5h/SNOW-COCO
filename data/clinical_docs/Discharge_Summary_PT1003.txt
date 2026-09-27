@@ -1,0 +1,20 @@
+INPATIENT DISCHARGE SUMMARY & POLYPHARMACY RECONCILIATION
+PATIENT NAME: Pendelton, Arthur | MRN: PT-1003 | DOB: 1952-11-03 (74M)
+ADMISSION DATE: 2026-08-10 | DISCHARGE DATE: 2026-08-14
+FACILITY: Massachusetts General Hospital | ATTENDING: Dr. David Kim, MD (Cardiology)
+
+DISCHARGE DIAGNOSES:
+1. Non-valvular Atrial Fibrillation (CHA2DS2-VASc score = 4).
+2. Congestive Heart Failure with preserved ejection fraction (HFpEF, NYHA Class III).
+3. Severe bilateral knee osteoarthritis with chronic joint pain.
+4. Mild normocytic anemia secondary to suspected subclinical upper GI blood loss.
+
+HOSPITAL COURSE & PHARMACY TOXICOLOGY AUDIT:
+Patient admitted following near-syncope and episode of dark, tarry stools at home. Comprehensive pharmacy reconciliation revealed patient has been concurrently consuming Apixaban (Eliquis) 5mg BID for stroke prophylaxis alongside over-the-counter and prescribed Ibuprofen 800mg TID for chronic severe knee pain.
+Total active medication count is 9 distinct pharmaceuticals. Cumulative claims expenditure over the trailing 12 months stands at $64,250, placing patient in the top 1% catastrophic risk decile.
+
+RECOMMENDATIONS AT DISCHARGE:
+1. Immediate and strict cessation of all oral NSAIDs (Ibuprofen).
+2. Transition analgesia to topical lidocaine patches and monitored acetaminophen.
+3. Outpatient gastroenterology endoscopy referral within 14 days.
+4. Care management enrollment under GCC High-Risk Care Coordination Program.

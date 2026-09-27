@@ -1,0 +1,32 @@
+# Environment variables and secrets
+.env
+*.p8
+*.pem
+*.key
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv/
+
+# Node / Web
+node_modules/
+dist/
+build/
+
+# Scratch & IDE
+scratch/
+.idea/
+.vscode/
+*.log
+
+# Large cloned repos
+agency-swarm/
+system_prompts_leaks/
+Downloads/

@@ -1,0 +1,16 @@
+UNITED STATES FOOD AND DRUG ADMINISTRATION (FDA)
+PRESCRIBING INFORMATION: ELIQUIS (APIXABAN) TABLETS, FOR ORAL USE
+Revised: 02/2026
+
+WARNING: (A) PREMATURE DISCONTINUATION INCREASES RISK OF THROMBOTIC EVENTS; (B) SPINAL/EPIDURAL HEMATOMA
+
+4. CONTRAINDICATIONS
+- Active pathological bleeding.
+- Severe hypersensitivity to apixaban.
+
+7. DRUG INTERACTIONS
+7.1 Concomitant Use with Anticoagulants and Antiplatelet Agents
+Co-administration of antiplatelet agents, fibrinolytics, heparin, aspirin, and chronic NSAID therapy increases the risk of bleeding.
+Nonsteroidal Anti-Inflammatory Drugs (NSAIDs):
+Concomitant administration of ELIQUIS with NSAIDs (such as ibuprofen, naproxen, or indomethacin) elevates platelet dysfunction and gastrointestinal mucosal irritation, resulting in a statistically significant increase in major gastrointestinal hemorrhage and intracranial bleed risk.
+Recommendation: Avoid concurrent administration of chronic high-dose NSAIDs with ELIQUIS unless clinically mandated and accompanied by gastroprotective agents (e.g., Proton Pump Inhibitors).

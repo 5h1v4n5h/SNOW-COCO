@@ -1,0 +1,25 @@
+definition_version: '2'
+entities:
+  pharma_copilot_spcs:
+    type: service
+    identifier:
+      name: ENTERPRISE_PHARMA_COPILOT
+      database: AEGIS_CORTEX_DB
+      schema: APP
+    compute_pool: COPILOT_POOL
+    spec_path: spcs_service_spec.yaml
+    min_instances: 1
+    max_instances: 2
+  aegiscortex_app:
+    type: streamlit
+    identifier:
+      name: AEGISCORTEX_CLINICAL_COPILOT
+      database: AEGIS_CORTEX_DB
+      schema: APP
+    query_warehouse: COMPUTE_WH
+    main_file: app/streamlit_app.py
+    title: "AegisCortex AI: Clinical & Regulatory Copilot"
+    stage: APP_STAGE
+    artifacts:
+      - app/
+      - core/

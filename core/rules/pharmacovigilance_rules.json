@@ -1,0 +1,66 @@
+{
+  "rules": [
+    {
+      "id": "RULE-PV-001",
+      "name": "Metformin Severe Renal Impairment Contraindication",
+      "target_medication": "Metformin",
+      "aliases": ["metformin", "glucophage"],
+      "condition_type": "LAB_THRESHOLD",
+      "loinc_code": "33914-3",
+      "test_name": "Glomerular filtration rate/1.73 sq M.predicted",
+      "comparator": "<",
+      "threshold": 30.0,
+      "severity": "CRITICAL",
+      "warning_type": "FDA_BOXED_WARNING",
+      "clinical_risk": "Fatal Lactic Acidosis due to reduced renal clearance and drug accumulation",
+      "regulatory_reference": "FDA Metformin Prescribing Information Section 4 (Contraindications) & Boxed Warning",
+      "recommended_action": "Discontinue Metformin immediately. Check venous lactate. Transition to renal-safe glycemic agent (e.g. DPP-4 inhibitor or adjusted basal insulin)."
+    },
+    {
+      "id": "RULE-PV-002",
+      "name": "Direct Oral Anticoagulant and NSAID Polypharmacy Co-Prescription",
+      "target_medication": "Eliquis / Apixaban",
+      "aliases": ["eliquis", "apixaban", "xarelto", "rivaroxaban"],
+      "secondary_medication": "NSAID (Ibuprofen/Naproxen)",
+      "secondary_aliases": ["ibuprofen", "naproxen", "meloxicam", "celecoxib", "nsaid", "advil", "motrin"],
+      "condition_type": "DRUG_DRUG_INTERACTION",
+      "severity": "HIGH",
+      "warning_type": "MAJOR_BLEEDING_RISK",
+      "clinical_risk": "Acute Upper Gastrointestinal Hemorrhage and Severe Mucosal Bleeding",
+      "regulatory_reference": "FDA Eliquis Prescribing Information Section 7.1 (Drug Interactions - NSAIDs)",
+      "recommended_action": "Cessation of oral NSAIDs immediately. Recommend topical analgesic alternatives (lidocaine patch) or monitored acetaminophen. Schedule outpatient GI endoscopy consultation."
+    },
+    {
+      "id": "RULE-PV-003",
+      "name": "ACE Inhibitor Hyperkalemia Toxicity",
+      "target_medication": "Lisinopril",
+      "aliases": ["lisinopril", "enalapril", "ramipril", "losartan"],
+      "condition_type": "LAB_THRESHOLD",
+      "loinc_code": "2823-3",
+      "test_name": "Potassium [Moles/volume] in Serum or Plasma",
+      "comparator": ">",
+      "threshold": 5.2,
+      "severity": "MODERATE",
+      "warning_type": "ELECTROLYTE_IMBALANCE",
+      "clinical_risk": "Cardiac Arrhythmia and Conduction Disturbance secondary to severe hyperkalemia",
+      "regulatory_reference": "FDA Lisinopril Prescribing Information Section 5.4 (Hyperkalemia)",
+      "recommended_action": "Repeat serum potassium and basic metabolic panel within 48 hours. Consider dietary potassium restriction or reduction of ACE inhibitor dose."
+    },
+    {
+      "id": "RULE-PV-004",
+      "name": "Metformin Moderate Renal Impairment Warning",
+      "target_medication": "Metformin",
+      "aliases": ["metformin", "glucophage"],
+      "condition_type": "LAB_THRESHOLD",
+      "loinc_code": "33914-3",
+      "test_name": "Glomerular filtration rate/1.73 sq M.predicted",
+      "comparator": "<",
+      "threshold": 45.0,
+      "severity": "WARNING",
+      "warning_type": "DOSAGE_ADJUSTMENT",
+      "clinical_risk": "Subacute decline in renal clearance with potential for drug accumulation",
+      "regulatory_reference": "FDA Metformin Prescribing Information Section 2.2 (Renal Impairment Dosing)",
+      "recommended_action": "Maximum daily dose should not exceed 1000 mg. Obtain eGFR monitoring at minimum every 3 months."
+    }
+  ]
+}

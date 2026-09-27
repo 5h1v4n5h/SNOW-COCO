@@ -1,0 +1,5 @@
+CALL_ID,HCP_ID,REP_NAME,TERRITORY_ID,CALL_DATE,INTERACTION_TYPE,DETAIL_PRIORITY,SAMPLES_DROPPED_QTY,LOT_NUMBER,SIGNATURE_VERIFIED
+CALL-001,HCP-001,Marcus Vance,US-PA-PHILLY-01,2024-11-14,In-Person Detailing,UltIMMa-1 PASI 90 Superiority vs Ustekinumab,2,LOT-SK-9812,Y
+CALL-002,HCP-002,Marcus Vance,US-PA-PHILLY-01,2024-11-12,In-Person Detailing,IMMvent Head-to-Head vs Adalimumab in Inadequate Responders,2,LOT-SK-9812,Y
+CALL-003,HCP-004,Marcus Vance,US-PA-PHILLY-01,2024-11-10,Medical Education Lunch,Safety Profile & Infection Screening Protocols,0,N/A,Y
+CALL-004,HCP-010,Marcus Vance,US-PA-PHILLY-01,2024-11-05,In-Person Detailing,Week 52 PASI 100 Complete Skin Clearance Maintenance,4,LOT-SK-9815,Y
