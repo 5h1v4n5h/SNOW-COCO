@@ -50,9 +50,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . /app
 
-EXPOSE 8000
+EXPOSE 8080
 
-CMD ["uvicorn", "api.server:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "api.server:app", "--host", "0.0.0.0", "--port", "8080"]
 """
     with open(STAGE_DIR / "Dockerfile", "w", encoding="utf-8") as f:
         f.write(dockerfile_content)

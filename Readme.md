@@ -1,7 +1,8 @@
 # AegisCortex AI: Enterprise Pharma & Clinical Regulatory Multi-Agent Copilot
 *Built Natively on Snowflake Cortex AI for the Snowflake CoCo CLI Hackathon 2026 – GCC Edition*
 
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-Online%20Now-success?style=for-the-badge&logo=cloudflare)](https://weed-paxil-bizarre-brings.trycloudflare.com)
+[![AWS Deployment](https://img.shields.io/badge/AWS%20ECS-Live%20Online-FF9900?style=for-the-badge&logo=amazon-aws&logoColor=white)](http://44.211.147.20:8080)
+[![Cloudflare Tunnel](https://img.shields.io/badge/Cloudflare-Live%20Demo-success?style=for-the-badge&logo=cloudflare)](https://weed-paxil-bizarre-brings.trycloudflare.com)
 [![Snowflake Cortex](https://img.shields.io/badge/Snowflake-Cortex%20AI-29B5E8?style=for-the-badge&logo=snowflake&logoColor=white)](https://www.snowflake.com/en/data-cloud/cortex/)
 [![LLM Engine](https://img.shields.io/badge/Cortex%20LLM-llama3.3--70b-6366F1?style=for-the-badge)](https://docs.snowflake.com/en/user-guide/snowflake-cortex/llm-functions)
 [![Cortex Search](https://img.shields.io/badge/Cortex%20Search-snowflake--arctic--embed--m--v1.5-blue?style=for-the-badge)](https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-search/cortex-search-overview)
@@ -10,10 +11,11 @@
 
 ---
 
-## 🌐 Live Interactive Demo
+## 🌐 Live Interactive Deployments
 
-🚀 **Click here to launch the live application (No login or credentials required):**  
-### 👉 [https://weed-paxil-bizarre-brings.trycloudflare.com](https://weed-paxil-bizarre-brings.trycloudflare.com)
+🚀 **Access the live application directly (No login or credentials required):**  
+* ☁️ **AWS Cloud Production (ECS Fargate)**: **[http://44.211.147.20:8080](http://44.211.147.20:8080)**  
+* ⚡ **Cloudflare Edge Tunnel**: **[https://weed-paxil-bizarre-brings.trycloudflare.com](https://weed-paxil-bizarre-brings.trycloudflare.com)**  
 
 Experience the live multi-persona interface, dynamic territory dashboards, instant Cortex AI clinical synthesis (`llama3.3-70b`), and real-time guardrail enforcement on live Snowflake Lakehouse data.
 

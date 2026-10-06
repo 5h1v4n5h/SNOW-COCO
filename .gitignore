@@ -47,6 +47,7 @@ CLAUDE.md
 # Build bundles & graph caches
 output/
 graphify-out/
+docker_stage/
 
 # Binary Office & Hackathon Presentation Asset Dumps
 *.docx
