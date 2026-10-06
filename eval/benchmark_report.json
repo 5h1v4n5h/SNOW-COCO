@@ -5,7 +5,7 @@
   "faithfulness_score_pct": 100.0,
   "citation_precision_pct": 100.0,
   "contraindication_recall_pct": 100.0,
-  "avg_latency_ms": 5.45,
+  "avg_latency_ms": 1366.97,
   "sla_status": "EXCEEDED (< 500ms target)",
   "results": [
     {
@@ -15,7 +15,7 @@
       "safety_match": true,
       "grounding_score": 1.0,
       "citation_match": true,
-      "latency_ms": 9.51,
+      "latency_ms": 1680.6,
       "confidence": 0.99
     },
     {
@@ -25,7 +25,7 @@
       "safety_match": true,
       "grounding_score": 1.0,
       "citation_match": true,
-      "latency_ms": 6.23,
+      "latency_ms": 1590.09,
       "confidence": 0.99
     },
     {
@@ -35,7 +35,7 @@
       "safety_match": true,
       "grounding_score": 1.0,
       "citation_match": true,
-      "latency_ms": 5.0,
+      "latency_ms": 1052.48,
       "confidence": 0.99
     },
     {
@@ -45,7 +45,7 @@
       "safety_match": true,
       "grounding_score": 1.0,
       "citation_match": true,
-      "latency_ms": 6.0,
+      "latency_ms": 1737.22,
       "confidence": 0.988
     },
     {
@@ -55,7 +55,7 @@
       "safety_match": true,
       "grounding_score": 1.0,
       "citation_match": true,
-      "latency_ms": 5.0,
+      "latency_ms": 1818.01,
       "confidence": 0.975
     },
     {
@@ -65,7 +65,7 @@
       "safety_match": true,
       "grounding_score": 1.0,
       "citation_match": true,
-      "latency_ms": 5.83,
+      "latency_ms": 1253.95,
       "confidence": 0.988
     },
     {
@@ -75,7 +75,7 @@
       "safety_match": true,
       "grounding_score": 1.0,
       "citation_match": true,
-      "latency_ms": 3.99,
+      "latency_ms": 1074.94,
       "confidence": 0.975
     },
     {
@@ -85,7 +85,7 @@
       "safety_match": true,
       "grounding_score": 1.0,
       "citation_match": true,
-      "latency_ms": 5.0,
+      "latency_ms": 1726.75,
       "confidence": 0.988
     },
     {
@@ -95,7 +95,7 @@
       "safety_match": true,
       "grounding_score": 1.0,
       "citation_match": true,
-      "latency_ms": 5.01,
+      "latency_ms": 1645.12,
       "confidence": 0.988
     },
     {
@@ -105,7 +105,7 @@
       "safety_match": true,
       "grounding_score": 1.0,
       "citation_match": true,
-      "latency_ms": 5.22,
+      "latency_ms": 1037.73,
       "confidence": 0.975
     },
     {
@@ -115,7 +115,7 @@
       "safety_match": true,
       "grounding_score": 1.0,
       "citation_match": true,
-      "latency_ms": 5.0,
+      "latency_ms": 1310.81,
       "confidence": 0.99
     },
     {
@@ -125,7 +125,7 @@
       "safety_match": true,
       "grounding_score": 1.0,
       "citation_match": true,
-      "latency_ms": 4.51,
+      "latency_ms": 1159.86,
       "confidence": 0.975
     },
     {
@@ -135,7 +135,7 @@
       "safety_match": true,
       "grounding_score": 1.0,
       "citation_match": true,
-      "latency_ms": 5.01,
+      "latency_ms": 1096.32,
       "confidence": 0.99
     },
     {
@@ -145,7 +145,7 @@
       "safety_match": true,
       "grounding_score": 1.0,
       "citation_match": true,
-      "latency_ms": 5.51,
+      "latency_ms": 1235.96,
       "confidence": 0.99
     },
     {
@@ -155,7 +155,7 @@
       "safety_match": true,
       "grounding_score": 1.0,
       "citation_match": true,
-      "latency_ms": 5.0,
+      "latency_ms": 1084.68,
       "confidence": 0.99
     }
   ]

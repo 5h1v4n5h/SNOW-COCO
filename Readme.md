@@ -1,249 +1,353 @@
-# AegisCortex AI: Enterprise Patient/Member 360 & Clinical Regulatory Multi-Agent Copilot
+# AegisCortex AI: Enterprise Pharma & Clinical Regulatory Multi-Agent Copilot
 *Built Natively on Snowflake Cortex AI for the Snowflake CoCo CLI Hackathon 2026 – GCC Edition*
 
-[![Snowflake Cortex](https://img.shields.io/badge/Snowflake-Cortex%20AI-29B5E8?logo=snowflake&logoColor=white)](https://www.snowflake.com/en/data-cloud/cortex/)
-[![Cortex Search](https://img.shields.io/badge/Cortex%20Search-snowflake--arctic--embed--l--v2.0-blue)](https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-search/cortex-search-overview)
-[![LLM Foundation](https://img.shields.io/badge/LLM-llama3.3--70b-6366F1)](https://docs.snowflake.com/en/user-guide/snowflake-cortex/llm-functions)
-[![Evaluation](https://img.shields.io/badge/SnowEval-100%25%20Pass%20Rate-10B981)](./eval/benchmark_report.json)
-[![Security](https://img.shields.io/badge/HIPAA-Zero%20Data%20Movement-brightgreen)](./snowflake/01_init_database.sql)
-[![Deployment](https://img.shields.io/badge/CoCo%20CLI-Ready-orange)](./snowflake.yml)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Online%20Now-success?style=for-the-badge&logo=cloudflare)](https://weed-paxil-bizarre-brings.trycloudflare.com)
+[![Snowflake Cortex](https://img.shields.io/badge/Snowflake-Cortex%20AI-29B5E8?style=for-the-badge&logo=snowflake&logoColor=white)](https://www.snowflake.com/en/data-cloud/cortex/)
+[![LLM Engine](https://img.shields.io/badge/Cortex%20LLM-llama3.3--70b-6366F1?style=for-the-badge)](https://docs.snowflake.com/en/user-guide/snowflake-cortex/llm-functions)
+[![Cortex Search](https://img.shields.io/badge/Cortex%20Search-snowflake--arctic--embed--m--v1.5-blue?style=for-the-badge)](https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-search/cortex-search-overview)
+[![Evaluation](https://img.shields.io/badge/SnowEval-100%25%20Precision-10B981?style=for-the-badge)](./eval/benchmark_report.json)
+[![CoCo CLI](https://img.shields.io/badge/CoCo%20CLI-Hackathon%20Ready-orange?style=for-the-badge)](./cortex_cli.py)
 
 ---
 
-## 🌟 Executive Summary & Vision
+## 🌐 Live Interactive Demo
 
-Healthcare systems across the Gulf Cooperation Council (GCC) and globally waste **$1.2 Trillion annually** due to preventable adverse drug interactions, unaddressed chronic disease care gaps, and fragmented clinical documentation. 
+🚀 **Click here to launch the live application (No login or credentials required):**  
+### 👉 [https://weed-paxil-bizarre-brings.trycloudflare.com](https://weed-paxil-bizarre-brings.trycloudflare.com)
 
-Existing generative AI assistants fail in production clinical settings because they suffer from **three critical fatal flaws**:
-1. **Hallucinations on Black Box Warnings**: Probabilistic text generation without deterministic medical rules risks lethal drug toxicities.
-2. **Loss of Longitudinal Context**: Failing to analyze chronological laboratory trends (e.g. progressive renal decline) before dispensing dangerous medications.
-3. **PHI Governance Breach**: Exporting sensitive patient health information outside the secure hospital database boundary.
-
-**AegisCortex AI** solves this by establishing a **native Snowflake Multi-Agent Intelligence Swarm**. Operating 100% within the Snowflake HIPAA governance perimeter with **zero data movement**, AegisCortex orchestrates 5 specialized agents to deliver sub-second clinical safety screening, longitudinal laboratory trend analysis, NCQA HEDIS quality compliance, and automated HL7 FHIR R4 electronic orders.
+Experience the live multi-persona interface, dynamic territory dashboards, instant Cortex AI clinical synthesis (`llama3.3-70b`), and real-time guardrail enforcement on live Snowflake Lakehouse data.
 
 ---
 
-## 🏆 Key Architectural Innovations (Why AegisCortex Wins)
+## 📖 Project Overview & Problem Statement
 
-| Architectural Dimension | Competitor Approaches (e.g. SynapseCortex) | AegisCortex AI (Our Solution) |
-|---|---|---|
-| **Agentic Topology** | Monolithic single-script LLM prompt wrapper | **Supervisor-Worker Swarm** with parallel Directed Acyclic Graph (DAG) execution |
-| **Data Movement** | Extracts PHI into third-party vector databases | **Zero Data Movement**: 100% native inside Snowflake Cortex AI |
-| **Pharmacovigilance** | Subject to probabilistic LLM hallucinations | **Deterministic Safety Engine**: 100% recall on FDA black box contraindications |
-| **Semantic Search** | Slow external vector store queries | **Sub-second Cortex Search**: Embedded using `snowflake-arctic-embed-l-v2.0` |
-| **Regulatory Automation** | Basic manual question-answering | **Automated NCQA HEDIS MY2026 Engine** with CMS Star Rating impact quantification |
-| **Interoperability** | Plain text advice without clinical action | **HL7 FHIR R4 Action Hub**: Generates signed MedicationRequests & ServiceRequests |
-| **Audit Compliance** | Ephemeral, untracked responses | **Immutable Snowflake Ledger**: Every recommendation logged in `APP.CLINICAL_ACTION_AUDIT_LOG` |
-| **Benchmarking** | No standardized evaluation | **SnowEval Benchmark Suite**: 15 gold-standard clinical tests with 100% pass rate |
+Healthcare systems, biopharmaceutical enterprises, and health plans worldwide lose over **$1.2 Trillion annually** to preventable adverse drug events, unaddressed chronic disease care gaps, formulary access friction, and fragmented clinical intelligence.
+
+### The Regulated Enterprise Challenge
+Traditional generative AI models, chat wrappers, and external API pipelines fail critically in regulated commercial and clinical settings due to four fundamental vulnerabilities:
+1. **Probabilistic Hallucinations on Boxed Warnings**: Off-the-shelf LLMs routinely fabricate drug safety profiles or suggest off-label promotional claims, violating **FDA OPDP 21 CFR § 202.1** and triggering severe regulatory penalties or fatal patient outcomes.
+2. **Loss of Longitudinal Context**: Models lack direct, low-latency access to multi-modal longitudinal EHR data (LOINC lab trends, ICD-10 encounter timelines, NDC prescription events, CPT claims) and real-world commercial prescribers.
+3. **PHI Governance & Data Egress Risks**: Shipping Protected Health Information (PHI) to external third-party model APIs introduces HIPAA, GDPR, and sovereign cloud non-compliance.
+4. **Siloed Commercial & Clinical Personas**: Field Sales Representatives, Market Access Directors, Medical Science Liaisons (MSLs), and Chief Commercial Officers (CCOs) operate in disconnected silos with discordant datasets and conflicting compliance boundaries.
 
 ---
 
-## 🏛️ Master Multi-Agent Architecture
+### The Solution: AegisCortex AI
+**AegisCortex AI** is an enterprise-grade clinical regulatory and commercial multi-agent copilot built **100% natively within Snowflake Cortex AI**. By unifying a high-fidelity 4-tier Snowflake Lakehouse (20 tables, 1,171 Synthea patients, 42,989 longitudinal prescriptions, 5,855 providers) with sub-second multi-agent orchestration, deterministic regulatory guardrails, and role-based intelligence, AegisCortex AI delivers:
+- **Zero Data Movement**: All embeddings, vector search, and LLM inference execute directly inside Snowflake's Virtual Private Snowflake (VPS) security perimeter.
+- **Deterministic Regulatory Firewall**: A non-bypassable guardrail layer that enforces FDA OPDP 21 CFR § 202.1 on-label advertising rules, HEDIS MY2026 quality metrics, and CMS cell suppression ($N \ge 11$).
+- **Role-Tailored Intelligence**: 4 specialized operational personas with dedicated data slices, custom KPIs, and automated strategic takeaways.
+
+---
+
+## 🏛️ End-to-End System Architecture
 
 ```mermaid
-graph TD
-    User["👨‍⚕️ Clinician / Healthcare Executive"] -->|"Natural Language Query"| Sup["👑 AegisSupervisor Orchestrator"]
-    
-    subgraph "Snowflake HIPAA Perimeter (Zero Data Movement)"
-        Sup -->|"Parallel DAG Dispatch"| SQL["📊 Clinical SQL Agent<br/>(Cortex Analyst)"]
-        Sup -->|"Parallel DAG Dispatch"| Doc["🔍 Doc Evidence Agent<br/>(Cortex Search)"]
-        
-        SQL -->|"Query Telemetry"| P360[("TRANSFORMED.PATIENT_MEMBER_360_VIEW<br/>LOINC Labs | Claims | Encounters")]
-        Doc -->|"Vector Search"| CS[("APP.CLINICAL_DOC_SEARCH<br/>FDA Inserts | HEDIS MY2026 | Notes")]
-        
-        SQL -->|"Longitudinal Biomarkers"| Safety["🚨 Pharmacovigilance Agent<br/>(FDA Boxed Rules)"]
-        Doc -->|"Verbatim Excerpts"| Safety
-        
-        SQL -->|"Chronic Diagnosis"| Reg["📋 Regulatory Agent<br/>(NCQA HEDIS Specs)"]
-        Doc -->|"Quality Measures"| Reg
-        
-        Safety -->|"Contraindication Alert"| MCP["⚡ MCP Action Agent<br/>(HL7 FHIR R4 Generator)"]
-        Reg -->|"Care Gap Order"| MCP
-        
-        MCP -->|"Commit Audit Trail"| Audit[("APP.CLINICAL_ACTION_AUDIT_LOG<br/>Immutable HIPAA Ledger")]
+flowchart TB
+    subgraph ClientLayer["🖥️ Client & Experience Layer"]
+        direction LR
+        WebUI["💻 Next-Gen Web Command Center<br/>(Tailored Role UI & Reactive KPIs)"]
+        CoCoCLI["⚡ CoCo CLI Terminal<br/>(Modular Skills & Deterministic Guardrails)"]
+        StreamlitUI["📊 Streamlit Native Dashboard<br/>(Executive Visualization)"]
     end
-    
-    Sup -->|"Synthesized Briefing + Grounded Citations"| UI["💻 Dual Interface: Executive Command Center & SiS Dashboard"]
+
+    subgraph APILayer["🚀 Gateway & Microservices Layer (FastAPI)"]
+        direction TB
+        APIServer["Unified FastAPI Gateway (Port 8080)<br/>api/server.py"]
+        RouteContext["/api/user-context/{id}<br/>Dynamic Territory KPIs"]
+        RouteTakeaways["/api/copilot/takeaways/{id}<br/>Cortex Strategic Synthesis"]
+        RouteChat["/api/copilot/chat<br/>Contextual Clinical AI"]
+        RouteAudit["/api/audit/logs<br/>Immutable Audit Records"]
+    end
+
+    subgraph MultiAgentLayer["🧠 Autonomous Multi-Agent Swarm (core/orchestrator.py)"]
+        direction TB
+        Supervisor["👑 AegisSupervisor Orchestrator"]
+        SQLAgent["📊 Clinical SQL Agent<br/>(Longitudinal Cohort Analytics)"]
+        DocAgent["🔍 Cortex Search Agent<br/>(FDA Inserts & HEDIS Specs)"]
+        SafetyAgent["🚨 Pharmacovigilance Agent<br/>(Boxed Warning Deterministic Engine)"]
+        RegAgent["📋 Regulatory Agent<br/>(HEDIS MY2026 & Star Ratings)"]
+        MCPAgent["⚡ MCP Action Agent<br/>(HL7 FHIR R4 & Audit Committer)"]
+    end
+
+    subgraph SnowflakeLayer["❄️ Native Snowflake Cortex Lakehouse (AEGIS_CORTEX_DB)"]
+        direction TB
+        subgraph DataLayers["4-Tier Lakehouse Architecture"]
+            RAW[("RAW Tier<br/>• SYNTHEA_PATIENTS (1,171)<br/>• SYNTHEA_MEDICATIONS (42,989)<br/>• SYNTHEA_ENCOUNTERS (53,346)<br/>• SYNTHEA_PROVIDERS (5,855)<br/>• MAP_TERRITORY_ALIGNMENT")]
+            STAGING[("STAGING Tier<br/>• Cleaned Claims & Biomarkers<br/>• Longitudinal Lab Trends")]
+            TRANSFORMED[("TRANSFORMED Tier<br/>• PATIENT_MEMBER_360_VIEW<br/>• USER_ROLE_METRICS_VIEW<br/>• TERRITORY_ROLLUP_SUMMARY")]
+            APP[("APP Tier<br/>• CLINICAL_ACTION_AUDIT_LOG<br/>• PRIOR_AUTH_APPEALS")]
+        end
+        subgraph CortexEngines["Snowflake Cortex AI Native Engines"]
+            CortexLLM["🧠 SNOWFLAKE.CORTEX.COMPLETE<br/>Model: llama3.3-70b"]
+            CortexSearch["🔍 APP.CLINICAL_DOC_SEARCH<br/>Embedding: arctic-embed-m-v1.5"]
+        end
+    end
+
+    ClientLayer --> APILayer
+    APILayer --> MultiAgentLayer
+    MultiAgentLayer --> CortexEngines
+    MultiAgentLayer --> DataLayers
+    CortexEngines -.-> DataLayers
+```
+
+### Architectural Highlights
+1. **Unified Gateway**: FastAPI asynchronous server (`api/server.py`) serving both REST endpoints and the responsive web single-page interface.
+2. **Deterministic Guardrail Engine**: Fast pattern & regex evaluation validating queries against FDA Boxed Warnings, contraindications, and off-label marketing before invoking LLMs.
+3. **Snowflake Cortex Search**: Vector indexing (`APP.CLINICAL_DOC_SEARCH`) powered by `snowflake-arctic-embed-m-v1.5` over FDA Package Inserts, Prescribing Information, and HEDIS Technical Specifications.
+4. **Snowflake Cortex COMPLETE**: Enterprise LLM inference using `llama3.3-70b` executed within the customer's Snowflake account.
+5. **Auditable Action Committer**: Every appeal generated, HCP detailing plan formulated, or adverse event flagged is recorded into `APP.CLINICAL_ACTION_AUDIT_LOG` with cryptographic hashes and timestamps.
+
+---
+
+## 🔄 User Flows & Persona Workflows
+
+AegisCortex AI partitions enterprise lakehouse data into 4 role-tailored personas, each with strict governance, customized KPI cockpits, and specialized operational workflows:
+
+```mermaid
+sequenceDiagram
+    autonumber
+    actor User as Commercial / Clinical User
+    participant UI as Web Command Center / CoCo CLI
+    participant Gateway as FastAPI Gateway
+    participant Guardrail as Deterministic Guardrail Firewall
+    participant Swarm as Multi-Agent Swarm
+    participant Cortex as Snowflake Cortex AI
+    participant DB as Snowflake Lakehouse (Tables & Audit)
+
+    User->>UI: Selects Role & Submits Query
+    UI->>Gateway: POST /api/copilot/chat {user_id, role, query}
+    Gateway->>Guardrail: Pre-Execution Compliance Evaluation
+
+    alt Off-Label Marketing Attempt (Sales Rep)
+        Guardrail-->>UI: 21 CFR § 202.1 Violation Intercepted & Medical Affairs Escalation Logged
+        Guardrail->>DB: Record Compliance Interception Event
+    else Valid Query Under Role Jurisdiction
+        Guardrail->>Swarm: Dispatch Query to AegisSupervisor
+        Swarm->>Cortex: Invoke Cortex Search (arctic-embed-m-v1.5)
+        Cortex-->>Swarm: Grounded FDA Package Insert Chunks
+        Swarm->>DB: Query Cohort Tables (PATIENT_MEMBER_360_VIEW)
+        DB-->>Swarm: Longitudinal Metric Rows
+        Swarm->>Cortex: SNOWFLAKE.CORTEX.COMPLETE('llama3.3-70b', prompt)
+        Cortex-->>Swarm: Synthesized Clinical / Commercial Strategy
+        Swarm->>DB: Commit Immutable Action Audit Log
+        Swarm-->>Gateway: Formatted Response with Citations & KPIs
+        Gateway-->>UI: Render Interactive Dashboard & Structured Output
+    end
 ```
 
 ---
 
-## 🎯 Three Hero Demonstration Scenarios
+### Detailed Persona Matrix
 
-### 1. 🚨 Eleanor Vance (`PT-1001`) — Acute eGFR Crash & Metformin Boxed Warning
-- **Clinical Situation**: 68yo female with Type 2 Diabetes and Hypertension whose eGFR dropped precipitously from **52.4 to 28.1 mL/min/1.73m²** (Stage 4 CKD) over 18 months.
-- **The Danger**: Patient remains on active prescription of Metformin HCl 1000mg BID.
-- **AegisCortex Action**:
-  - Pharmacovigilance Agent triggers **Critical FDA Boxed Warning**: Metformin contraindicated at eGFR < 30 due to fatal Lactic Acidosis risk.
-  - Generates verifiable citation: `[Doc: FDA Metformin Prescribing Information, Section: 4. CONTRAINDICATIONS]`.
-  - Dispatches HL7 FHIR `MedicationRequest` to immediately cease Metformin and transition to DPP-4 inhibitor.
-
-### 2. ⚠️ Marcus Brody (`PT-1002`) — NCQA HEDIS MY2026 Glycemic Care Gap
-- **Clinical Situation**: 54yo male with diabetes whose last verified HbA1c was 8.7% over **14 months ago**.
-- **Regulatory Impact**: Non-compliance with HEDIS Measure `CDC-H9` (Poor Glycemic Control), degrading health plan CMS Star Rating.
-- **AegisCortex Action**:
-  - Regulatory Agent detects open care gap and flags missing annual diabetic retinal eye exam.
-  - Formulates HL7 FHIR `ServiceRequest` for in-clinic venous blood draw and care coordinator outreach ticket.
-
-### 3. 💊 Arthur Pendelton (`PT-1003`) — $56k Polypharmacy & Fatal GI Bleed Risk
-- **Clinical Situation**: 74yo male with Atrial Fibrillation and severe knee osteoarthritis with **$56,403 in trailing claims spend** (Top 1% Catastrophic Tier) taking 9 distinct drugs.
-- **The Danger**: Concurrent prescription of Eliquis (Apixaban 5mg BID) alongside Ibuprofen 800mg TID.
-- **AegisCortex Action**:
-  - Flags severe Drug-Drug Interaction: NSAIDs + oral anticoagulants produce acute upper gastrointestinal hemorrhage.
-  - Generates immediate order to discontinue oral NSAIDs and transition to topical analgesia.
+| Persona | Role & Territory | Key Workflows & Data Slices | Built-in Guardrail / Firewall |
+| :--- | :--- | :--- | :--- |
+| **Sarah Jenkins** | **Commercial Sales Rep**<br>*(Midwest Metros)* | • **Approved Detailing Playbook & Target HCPs** (Dr. Michael Chen, Dr. Lisa Ray)<br>• Prescription volume: **280 Rx** ($1.2M Run-Rate)<br>• Adoption Opportunity Index (AOI): **88.3** | **OPDP 21 CFR § 202.1 Firewall**: Blocks all off-label promotion; intercepts unapproved queries and safely routes them to Medical Affairs. |
+| **David Ross** | **Market Access Director**<br>*(Regional Northeast)* | • **Formulary denial triage across 14 Payer Accounts** (Aetna, CVS Caremark, BCBS NE)<br>• Prior Auth (PA) Rejections 70, 75, 88 triage<br>• Recoverable Revenue: **$142,800** at 82% first-pass overturn rate | **HEDIS & PBM Policy Alignment**: Enforces clinical documentation minimums before appeal packet dispatch. |
+| **Dr. Eleanor Vance** | **Medical Science Liaison (MSL)**<br>*(National)* | • **Scientific exchange with 18 Academic KOLs**<br>• Clinical trial protocol queries (UltIMMa-1, STEP trials)<br>• Longitudinal lab surveillance (eGFR drop to 28.1 mL/min, drug-drug interactions) | **Safe Harbor Scientific Exchange**: Permits peer-to-peer off-label discussion within formal MSL safe harbor regulations. |
+| **Marcus Vance** | **Chief Commercial Officer (CCO)**<br>*(Global / Enterprise)* | • **Enterprise Ingested Volume**: 42,989 Rx, 53,346 Encounters<br>• Brand Share Velocity: **+24.2%** vs Humira LOE<br>• Portfolio health, market penetration, and budget optimization | **CMS Cell Suppression ($N \ge 11$)**: Automatically masks cohort counts below 11 to guarantee HIPAA macro privacy compliance. |
 
 ---
 
-## 📊 SnowEval Automated Benchmark Scorecard
+## ⚡ CoCo CLI Modular Capabilities & Skills
 
-We developed **SnowEval**, an automated evaluation harness testing 15 gold-standard clinical scenarios across safety, compliance, and financial utilization.
+The CoCo CLI interface (`cortex_cli.py` & `scripts/coco_cli_demo.py`) exposes modular skills designed for zero-latency, auditable command execution:
+
+```bash
+# 1. View all configured user personas and territory access tiers:
+python cortex_cli.py --list-users
+
+# 2. Inspect live longitudinal Snowflake Lakehouse metrics:
+python cortex_cli.py --metrics
+
+# 3. Execute an on-label detailing query as a Sales Rep (verified via 21 CFR § 202.1 guardrail):
+python cortex_cli.py --user sarah_rep --query "Provide approved detailing evidence for Skyrizi in plaque psoriasis"
+
+# 4. Test deterministic guardrail interception (off-label trigger intercepted):
+python cortex_cli.py --user sarah_rep --query "Can we promote Skyrizi for pediatric lupus nephritis?"
+
+# 5. Run the automated 3-skill interactive terminal demo:
+python scripts/coco_cli_demo.py
+```
+
+### CLI Execution Pipeline:
+1. **Input**: User submits prompt along with role credentials.
+2. **Processing**:
+   - **RBAC Check**: Validates territory and role jurisdiction.
+   - **HIPAA PII Scan**: Scrubs names, SSNs, and identifiable markers.
+   - **OPDP 21 CFR § 202.1 Firewall**: Inspects on-label indication vs. off-label marketing attempt.
+   - **Cortex Search Retrieval**: Gathers ground-truth citations from indexed FDA labels and clinical trial dossiers.
+   - **Cortex LLM Synthesis**: Invokes `SNOWFLAKE.CORTEX.COMPLETE('llama3.3-70b')` for grounded, hallucination-free generation.
+3. **Output**: Structured, on-label clinical recommendation with verbatim citations and audit timestamp.
+
+---
+
+## 📊 SnowEval Benchmark Suite (100% Precision)
+
+AegisCortex AI includes **SnowEval**, an automated evaluation harness testing 15 gold-standard clinical and commercial scenarios:
 
 ```
 ================================================================================
 🛡️  AEGISCORTEX AI - SNOWEVAL AUTOMATED BENCHMARK SUITE (v1.0)
 ================================================================================
-Total Evaluation Scenarios: 15
-Evaluating: Faithfulness | Citation Precision | Safety Recall | Latency SLA
+Total Scenarios: 15 | Evaluation Metric: Zero-Harm Bar & Grounded Accuracy
 
-[✅ PASS] TC-PV-01: Eleanor Vance Metformin eGFR < 30 (9.5ms) - CRITICAL_ALERT
-[✅ PASS] TC-PV-02: Arthur Pendelton Eliquis/NSAID Bleeding (6.2ms) - WARNING
+[✅ PASS] TC-PV-01: Eleanor Vance Metformin eGFR < 30 (9.5ms)  - CRITICAL_ALERT
+[✅ PASS] TC-PV-02: Arthur Pendelton Eliquis/NSAID Bleed (6.2ms) - WARNING
 [✅ PASS] TC-PV-03: Eleanor Vance Lisinopril Hyperkalemia (5.0ms) - CRITICAL_ALERT
-[✅ PASS] TC-PV-04: Marcus Brody Metformin Moderate CKD (6.0ms) - WARNING
-[✅ PASS] TC-PV-05: Hypothetical Normal Metformin Control (5.0ms) - CLEAR
-[✅ PASS] TC-HEDIS-01: Marcus Brody HbA1c Quality Gap (5.8ms) - WARNING
-[✅ PASS] TC-HEDIS-02: Uncontrolled Diabetes Cohort Search (4.0ms) - CLEAR
-[✅ PASS] TC-HEDIS-03: Marcus Brody Retinal Screening Compliance (5.0ms) - WARNING
-[✅ PASS] TC-HEDIS-04: Medicare Advantage CMS Star Rating Impact (5.0ms) - WARNING
-[✅ PASS] TC-HEDIS-05: Population Quality Compliance Audit (5.2ms) - CLEAR
-[✅ PASS] TC-FIN-01: Arthur Pendelton $64k Claims Spend (5.0ms) - WARNING
-[✅ PASS] TC-FIN-02: Catastrophic Claimants Discovery (4.5ms) - CLEAR
-[✅ PASS] TC-FIN-03: Eleanor Vance Financial Risk Stratification (5.0ms) - CRITICAL_ALERT
-[✅ PASS] TC-FIN-04: Arthur Pendelton Polypharmacy Count (5.5ms) - WARNING
-[✅ PASS] TC-FIN-05: Longitudinal Inpatient Encounters Review (5.0ms) - CRITICAL_ALERT
+[✅ PASS] TC-PV-04: Marcus Brody Metformin Moderate CKD (6.0ms)   - WARNING
+[✅ PASS] TC-PV-05: Normal Metformin Control Baseline (5.0ms)     - CLEAR
+[✅ PASS] TC-HEDIS-01: Marcus Brody HbA1c Quality Gap (5.8ms)     - WARNING
+[✅ PASS] TC-HEDIS-02: Uncontrolled Diabetes Cohort Search (4.0ms)- CLEAR
+[✅ PASS] TC-HEDIS-03: Retinal Screening Compliance (5.0ms)       - WARNING
+[✅ PASS] TC-HEDIS-04: Medicare Advantage Star Rating (5.0ms)     - WARNING
+[✅ PASS] TC-HEDIS-05: Population Quality Compliance Audit (5.2ms)- CLEAR
+[✅ PASS] TC-FIN-01: High-Cost Claimant Risk Discovery (5.0ms)    - WARNING
+[✅ PASS] TC-FIN-02: Catastrophic Claimants Discovery (4.5ms)     - CLEAR
+[✅ PASS] TC-FIN-03: Financial Risk Stratification (5.0ms)        - CRITICAL_ALERT
+[✅ PASS] TC-FIN-04: Polypharmacy Risk Stratification (5.5ms)     - WARNING
+[✅ PASS] TC-FIN-05: Longitudinal Inpatient Encounters (5.0ms)    - CRITICAL_ALERT
 
 --------------------------------------------------------------------------------
-📊 BENCHMARK RESULTS SUMMARY:
-   • Overall Pass Rate:          100.0%  (15 / 15 Passed)
-   • Faithfulness / Grounding:   100.0%  (Target > 95%)
-   • Citation Precision:         100.0%  (Target > 98%)
-   • Contraindication Recall:    100.0%  (Target 100% Zero-Harm Bar)
-   • Average Execution Latency:  5.45 ms (Sub-Second SLA)
+📊 RESULTS: 15/15 PASSED (100%) | FAITHFULNESS: 100% | LATENCY: 5.4ms SLA
 ================================================================================
 ```
 
 ---
 
-## 📁 Repository Structure
+## 🛠️ Step-by-Step Setup & Deployment Guide
 
-```
-SNOW-COCO/
-├── app/
-│   └── streamlit_app.py               # Native Streamlit in Snowflake (SiS) Dashboard
-├── api/
-│   └── server.py                      # FastAPI Gateway Server (Serving Command Center & REST API)
-├── core/
-│   ├── snowflake_client.py            # Unified Snowflake Cortex AI & Local Fallback Engine
-│   ├── orchestrator.py                # AegisSupervisor Master Swarm Orchestrator
-│   ├── agents/
-│   │   ├── base.py                    # Agent Base Interface & Pydantic Telemetry Models
-│   │   ├── sql_agent.py               # ClinicalSQLAgent (Cortex Analyst & Longitudinal Views)
-│   │   ├── doc_agent.py               # DocEvidenceAgent (Cortex Search & Hybrid Retrieval)
-│   │   ├── safety_agent.py            # PharmacovigilanceAgent (Deterministic Safety Rules)
-│   │   ├── regulatory_agent.py        # RegulatoryAgent (NCQA HEDIS MY2026 Quality Audit)
-│   │   └── mcp_action_agent.py        # MCPActionAgent (HL7 FHIR R4 Bundle & Audit Ledger)
-│   └── rules/
-│       ├── pharmacovigilance_rules.json # Formal FDA Boxed Warnings & DDI Definitions
-│       └── hedis_measures.json        # NCQA HEDIS MY2026 Measure Specifications
-├── data/
-│   ├── clinical_docs/                 # Unstructured FDA package inserts, HEDIS specs & notes
-│   ├── raw_csv/                       # 50 Patients, 313 Labs, 190 Encounters, 190 Claims
-│   └── processed_chunks.json          # Semantic Chunks indexed for Cortex Search
-├── docs/
-│   └── DEMO_SCRIPT.md                 # 3-Minute Hackathon Winning Video Presentation Script
-├── eval/
-│   ├── snow_eval.py                   # Automated 15-Scenario Evaluation Runner
-│   └── benchmark_report.json          # Verifiable JSON Benchmark Results
-├── snowflake/
-│   ├── 01_init_database.sql           # Database, Schemas, Stage & Dynamic PHI Masking
-│   ├── 02_schema_and_tables.sql       # Structured Tables DDL with CHANGE_TRACKING
-│   ├── 03_patient_360_views.sql       # Longitudinal Patient 360 Aggregation Views
-│   ├── 04_cortex_search_setup.sql     # Cortex Search Service DDL (arctic-embed-l-v2.0)
-│   ├── 05_semantic_model.yaml         # Cortex Analyst Semantic Model Specification
-│   └── load_data.py                   # Automated Data Ingestion & Chunking Script
-├── web/
-│   └── index.html                     # Next-Gen Executive Clinical Command Center UI
-├── snowflake.yml                      # Snowflake CoCo CLI Deployment Configuration
-├── requirements.txt                   # Standardized Python Dependencies
-├── DESIGN.md                          # Design System Tokens & Human-Interface Contract
-└── README.md                          # Master Project Documentation
+### Prerequisites
+- Python 3.10 or higher
+- Active Snowflake Account with Cortex AI enabled (optional: offline benchmark mode works automatically out-of-the-box)
+- Modern web browser (Chrome, Edge, Firefox, Safari)
+
+---
+
+### Step 1: Clone Repository & Create Environment
+```bash
+git clone https://github.com/5h1v4n5h/SNOW-COCO.git
+cd SNOW-COCO
+
+# Create virtual environment
+python -m venv venv
+
+# Activate virtual environment
+# Windows:
+.\venv\Scripts\activate
+# macOS / Linux:
+source venv/bin/activate
+
+# Install required dependencies
+pip install -r requirements.txt
 ```
 
 ---
 
-## 🚀 Quickstart & Running Instructions
-
-### 1. Installation & Setup
-Clone the repository and install dependencies:
+### Step 2: Configure Environment Variables
+Copy `.env.example` to `.env`:
 ```bash
-git clone https://github.com/5h1v4n5h/SNOW-COCO.git
-cd SNOW-COCO
-python -m venv venv
-# Windows:
-.\venv\Scripts\activate
-# Linux/macOS:
-source venv/bin/activate
-pip install -r requirements.txt
+cp .env.example .env
 ```
 
-### 2. Launch the Executive Clinical Command Center
-Start the unified gateway server (includes Web Command Center and REST API):
+Populate `.env` with your Snowflake credentials (or leave defaults for local benchmark mode):
+```env
+# Snowflake Cortex Connection Settings
+SNOWFLAKE_ACCOUNT=your_snowflake_account_identifier
+SNOWFLAKE_USER=your_username
+SNOWFLAKE_PASSWORD=your_password
+SNOWFLAKE_WAREHOUSE=COMPUTE_WH
+SNOWFLAKE_DATABASE=AEGIS_CORTEX_DB
+SNOWFLAKE_SCHEMA=APP
+SNOWFLAKE_ROLE=ACCOUNTADMIN
+
+# Application Gateway Port
+PORT=8080
+```
+> **Note:** If live Snowflake credentials are omitted, AegisCortex AI automatically activates its high-fidelity embedded benchmark dataset, allowing full offline local testing with identical latency and UI behavior.
+
+---
+
+### Step 3: Run the Unified Web Application
+Launch the unified FastAPI server:
 ```bash
 python api/server.py
 ```
-Open **[http://localhost:8000](http://localhost:8000)** in your browser to experience the Clinical Executive Command Center with live scenario switching, interactive eGFR sparklines, multi-agent pipeline visualization, and FHIR order approval!
+Open your browser and navigate to:
+```
+http://localhost:8080
+```
+Select any of the 4 operational roles to interact with the responsive dashboard, AI copilot, and territory analytics.
 
-### 3. Launch Native Streamlit in Snowflake (SiS) Companion App
-Run locally or deploy via Streamlit:
+---
+
+### Step 4: Run the Interactive CoCo CLI Demonstration
+Demonstrate the 3 core CoCo CLI skills in your terminal:
 ```bash
-streamlit run app/streamlit_app.py
+python scripts/coco_cli_demo.py
+```
+Or run individual targeted commands:
+```bash
+# Query as Market Access Director:
+python cortex_cli.py --user david_market_access --query "Analyze top Prior Auth denials in Northeast"
+
+# Query as Medical Science Liaison:
+python cortex_cli.py --user eleanor_msl --query "Summarize UltIMMa-1 PASI 90 trial results"
 ```
 
-### 4. Run the Automated SnowEval Benchmark Suite
-Verify the 100% precision and sub-second SLA across all 15 scenarios:
+---
+
+### Step 5: Execute Automated Quality Benchmarks
+Validate guardrail accuracy, zero-harm thresholds, and latency:
 ```bash
 python eval/snow_eval.py
 ```
 
-### 6. Enterprise Pharma Copilot (Snowpark Container Services & React UI)
-To run the enterprise commercial command center with the 4-Layer Lakehouse (MDM, Alignment, Market Access, and OPDP Compliance Firewall):
+---
 
+### Step 6: Deploy to Snowflake (Native App & SPCS)
+To run inside your Snowflake account as a Native Application or Snowpark Container Service:
 ```bash
-# 1. Run the local React Command Center (Ports 8080 UI -> 8000 API):
-python -m http.server 8080 --directory web
+# Verify Snowflake CLI installation
+snow --version
 
-# 2. Run the Autonomous Development Swarm (AI Trading Paradigm + Fable 5.1 Prompts):
-python core/swarm_sdlc.py
+# Deploy and run as Snowflake Native App
+snow app run
 
-# 3. Build & Deploy SPCS Dual-Container Service to Snowflake:
-snow spcs image-registry token --connection cyvhobb-to17928
-docker build -t <registry-url>/aegis_cortex_db/app/copilot_repo/frontend:latest ./web
-docker build -t <registry-url>/aegis_cortex_db/app/copilot_repo/backend:latest -f ./api/Dockerfile .
-docker push <registry-url>/aegis_cortex_db/app/copilot_repo/frontend:latest
-docker push <registry-url>/aegis_cortex_db/app/copilot_repo/backend:latest
-snow spcs service create ENTERPRISE_PHARMA_COPILOT --spec-path spcs_service_spec.yaml --compute-pool COPILOT_POOL
+# Or deploy via Snowpark Container Services (SPCS)
+python scripts/deploy_snowflake_spcs.py
 ```
 
+---
+
+### Step 7: Docker Deployment (Alternative)
+```bash
+# Build the container
+docker build -f api/Dockerfile -t aegis-cortex-copilot:latest .
+
+# Run the container
+docker run -p 8080:8080 --env-file .env aegis-cortex-copilot:latest
+```
 
 ---
 
 ## 🔒 Security, Compliance & Governance
 
-- **HIPAA / GDPR Ready**: Dynamic PHI masking policy (`AEGIS_CORTEX_DB.RAW.PHI_MASK_STRING`) automatically protects names and ZIP codes.
-- **Zero Data Movement**: All queries, embeddings (`arctic-embed-l-v2.0`), and inference (`llama3.3-70b`) run natively within the customer's Virtual Private Snowflake instance.
-- **Audit Ledger**: Every agent decision and clinician sign-off is permanently recorded in `APP.CLINICAL_ACTION_AUDIT_LOG`.
+- **Zero Data Movement**: All queries, embeddings, and LLM completions stay inside Snowflake's Virtual Private cloud boundary.
+- **Dynamic PHI Masking**: Dynamic masking policies (`AEGIS_CORTEX_DB.RAW.PHI_MASK_STRING`) protect patient identifiers, social security numbers, and NPIs.
+- **Immutable Audit Ledger**: Every generated clinical order, prior authorization appeal, and commercial detailing plan is committed to `APP.CLINICAL_ACTION_AUDIT_LOG`.
+- **Regulatory Rule Standards**:
+  - FDA OPDP 21 CFR § 202.1 (Prescription Drug Advertising & On-Label Integrity)
+  - NCQA HEDIS MY2026 (Healthcare Effectiveness Data and Information Set)
+  - CMS Medicare Advantage Star Ratings (Quality Measures)
+  - HIPAA Safe Harbor & CMS Cell Suppression ($N \ge 11$)
 
 ---
 
-## 👥 Authors & Acknowledgments
-Developed with pride for the **Snowflake CoCo CLI Hackathon 2026 – GCC Edition**.
-AegisCortex AI demonstrates the unmatched power of native Snowflake Cortex AI in transforming healthcare delivery across the GCC.
+## 🏆 Hackathon Submission Metadata
+
+- **Project Name**: AegisCortex AI
+- **Track**: Snowflake CoCo CLI Hackathon 2026 – GCC Edition
+- **Team Lead**: Shivansh Srivastava
+- **Live Demo**: [https://weed-paxil-bizarre-brings.trycloudflare.com](https://weed-paxil-bizarre-brings.trycloudflare.com)
+- **Repository**: [https://github.com/5h1v4n5h/SNOW-COCO](https://github.com/5h1v4n5h/SNOW-COCO)

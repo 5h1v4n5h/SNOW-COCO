@@ -4,11 +4,11 @@ spec:
       image: /aegis_cortex_db/app/copilot_repo/frontend:latest
       resources:
         requests:
+          memory: 0.5G
+          cpu: 0.25
+        limits:
           memory: 1G
           cpu: 0.5
-        limits:
-          memory: 2G
-          cpu: 1.0
     - name: backend
       image: /aegis_cortex_db/app/copilot_repo/backend:latest
       env:
@@ -18,11 +18,11 @@ spec:
         ENVIRONMENT: "production"
       resources:
         requests:
-          memory: 2G
-          cpu: 1.0
+          memory: 1.5G
+          cpu: 0.5
         limits:
-          memory: 4G
-          cpu: 2.0
+          memory: 3G
+          cpu: 0.75
   endpoints:
     - name: copilot-ui
       port: 8080

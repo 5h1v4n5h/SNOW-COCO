@@ -1,5 +1,6 @@
 # Environment variables and secrets
 .env
+.env.*
 *.p8
 *.pem
 *.key
@@ -25,8 +26,32 @@ scratch/
 .idea/
 .vscode/
 *.log
+*.pid
 
-# Large cloned repos
+# Third-party / Cloned / Reference Framework Repositories
+agency-agents/
 agency-swarm/
 system_prompts_leaks/
 Downloads/
+synthea_sample/
+
+# Agent runtime caches, configs & vector store local files
+.claude/
+.claude-flow/
+.swarm/
+.mcp.json
+ruflo.config.json
+RUFLO_MISSION_BRIEF.md
+CLAUDE.md
+
+# Build bundles & graph caches
+output/
+graphify-out/
+
+# Binary Office & Hackathon Presentation Asset Dumps
+*.docx
+*.pptx
+COCO Hackathon/
+
+# Large raw synthetic data files (generated on-demand via data_generator scripts)
+data/synthetic_large/

@@ -102,6 +102,16 @@ class RegulatoryAgent(BaseAgent):
                 "recommended_action": "Generate automated referral to network optometrist or schedule mobile retinal camera scan."
             })
 
+            citations.append(Citation(
+                doc_title="NCQA HEDIS MY2026 Comprehensive Diabetes Care Guidelines",
+                section_name="MEASURE REQUIREMENTS - RETINAL EYE EXAM (CDC-E)",
+                verbatim_text=(
+                    "Adults 18-75 years of age with diabetes must receive a retinal or dilated eye exam "
+                    "by an eye care professional (optometrist or ophthalmologist) in the measurement year."
+                ),
+                relevance_score=1.0
+            ))
+
         status = "WARNING" if open_gaps else "SUCCESS"
         summary = (
             f"Regulatory HEDIS audit completed for {patient_data.get('FIRST_NAME', '')} {patient_data.get('LAST_NAME', '')}. "

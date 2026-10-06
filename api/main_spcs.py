@@ -1,7 +1,4 @@
-Below is a production-oriented `api/main.py` implementation for the private FastAPI container in SPCS. It assumes Snowflake governed secure views exist for the configured view names and that NGINX proxies authenticated requests to this service at `127.0.0.1:8000`.
-
-```python
-# api/main.py
+# api/main_spcs.py
 from __future__ import annotations
 
 import asyncio
@@ -1268,60 +1265,3 @@ USER REQUEST:
         fair_balance_required=fair_balance_required,
         citations=citations,
     )
-```
-
-Required Python dependencies:
-
-```text
-fastapi>=0.115,<1.0
-uvicorn[standard]>=0.30,<1.0
-snowflake-connector-python>=3.12,<4.0
-pydantic>=2.8,<3.0
-pydantic-settings>=2.4,<3.0
-PyJWT[crypto]>=2.9,<3.0
-anyio>=4.4,<5.0
-```
-
-The configured Snowflake secure views must expose the explicitly selected columns used by each endpoint. In particular, `COPILOT_APPROVED_CONTENT_V` must contain only approved/MLR-governed source content and must include:
-
-```text
-CONTENT_ID
-TITLE
-VERSION
-EFFECTIVE_DATE
-APPROVED_CONTENT
-SEARCH_TEXT
-```
-
-The audit target must support:
-
-```text
-EVENT_TS
-REQUEST_ID
-SUBJECT
-ACTION
-RESOURCE
-OUTCOME
-DETAILS
-```
-
-For production SPCS deployment, configure at minimum:
-
-```text
-APP_ENV=production
-
-JWT_JWKS_URL=https://<identity-provider>/.well-known/jwks.json
-JWT_ISSUER=https://<identity-provider>/
-JWT_AUDIENCE=enterprise-pharma-copilot-api
-
-SNOWFLAKE_ACCOUNT=<organization-account>
-SNOWFLAKE_USER=<service-user>
-SNOWFLAKE_WAREHOUSE=<governed-warehouse>
-SNOWFLAKE_DATABASE=<database>
-SNOWFLAKE_SCHEMA=<schema>
-SNOWFLAKE_ROLE=<least-privilege-service-role>
-SNOWFLAKE_PRIVATE_KEY_FILE=/path/to/mounted/private_key.p8
-SNOWFLAKE_PRIVATE_KEY_FILE_PWD=<secret-if-applicable>
-
-CORTEX_MODEL=<organization-approved-cortex-model>
-```

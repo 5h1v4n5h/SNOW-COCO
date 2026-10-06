@@ -101,17 +101,14 @@ class MCPActionAgent(BaseAgent):
             action_summary = f"Dispatched clinical coordination request for patient {patient_id}."
 
         # 2. Record in Snowflake Audit Log (or local SQLite)
+        escaped_payload = json.dumps(fhir_resource).replace("'", "''")
         audit_sql = f"""
         INSERT INTO AEGIS_CORTEX_DB.APP.CLINICAL_ACTION_AUDIT_LOG
-        (ACTION_ID, PATIENT_ID, ACTION_TYPE, AGENT_TRIGGERED, STATUS, PAYLOAD)
-        VALUES ('{action_id}', '{patient_id}', '{action_type}', 'MCPActionAgent', 'PENDING_CLINICIAN_SIGNATURE', '{json.dumps(fhir_resource)}');
+        (ACTION_ID, SESSION_ID, PATIENT_ID, ACTION_TYPE, SEVERITY, ACTION_PAYLOAD, DESTINATION, DISPATCHED_BY_AGENT, APPROVED_BY_USER, CITATION_HASH)
+        SELECT '{action_id}', 'SESS-001', '{patient_id}', '{action_type}', 'WARNING', PARSE_JSON('{escaped_payload}'), 'EHR_FHIR', 'MCPActionAgent', 'PENDING_CLINICIAN_SIGNATURE', 'CITE-{action_id}';
         """
-        # Note: Local client handles table/schema normalization
         try:
-            # We can log to local sqlite if table exists or silently record
-            self.client.execute_query(
-                f"INSERT INTO CLINICAL_ACTION_AUDIT_LOG VALUES ('{action_id}', '{patient_id}', '{action_type}', 'MCPActionAgent', 'PENDING_CLINICIAN_SIGNATURE', '{json.dumps(fhir_resource)}', datetime('now'))"
-            )
+            self.client.execute_query(audit_sql)
         except Exception:
             pass
 

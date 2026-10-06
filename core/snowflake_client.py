@@ -17,6 +17,7 @@ load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 RAW_CSV_DIR = BASE_DIR / "data" / "raw_csv"
+SYNTHETIC_DIR = BASE_DIR / "data" / "synthetic_large"
 PROCESSED_CHUNKS_FILE = BASE_DIR / "data" / "processed_chunks.json"
 
 class SnowflakeCortexClient:
@@ -43,6 +44,29 @@ class SnowflakeCortexClient:
 
     def _init_connection(self):
         """Attempts connection to live Snowflake instance if credentials exist."""
+        # Check for SPCS OAuth token first
+        token_path = Path("/snowflake/session/token")
+        if token_path.exists():
+            try:
+                import snowflake.connector
+                with open(token_path, "r", encoding="utf-8") as f:
+                    oauth_token = f.read().strip()
+                host = os.getenv("SNOWFLAKE_HOST")
+                self.conn = snowflake.connector.connect(
+                    host=host,
+                    token=oauth_token,
+                    authenticator="oauth",
+                    account=os.getenv("SNOWFLAKE_ACCOUNT", self.account),
+                    warehouse=self.warehouse,
+                    database=self.database,
+                    schema=self.schema,
+                )
+                self._is_live = True
+                print("[AegisCortex] Successfully connected to live Snowflake Cortex instance via SPCS token.")
+                return
+            except Exception as e:
+                print(f"[AegisCortex] SPCS session token connection failed ({e}). Checking direct credentials.")
+
         if self.account and self.user and self.password and "<" not in self.account:
             try:
                 import snowflake.connector
@@ -66,10 +90,13 @@ class SnowflakeCortexClient:
     def _init_local_store(self):
         """Loads CSVs and pre-computed views into local in-memory SQLite for instantaneous testing."""
         try:
-            patients_csv = RAW_CSV_DIR / "patients.csv"
-            labs_csv = RAW_CSV_DIR / "lab_results.csv"
-            claims_csv = RAW_CSV_DIR / "claims.csv"
-            encounters_csv = RAW_CSV_DIR / "encounters.csv"
+            # Prioritize large synthetic lakehouse dataset if generated, otherwise raw_csv
+            source_dir = SYNTHETIC_DIR if (SYNTHETIC_DIR / "patients.csv").exists() else RAW_CSV_DIR
+            
+            patients_csv = source_dir / "patients.csv"
+            labs_csv = source_dir / "lab_results.csv"
+            claims_csv = source_dir / "claims.csv"
+            encounters_csv = source_dir / "encounters.csv"
 
             if patients_csv.exists():
                 df_p = pd.read_csv(patients_csv)
@@ -86,6 +113,12 @@ class SnowflakeCortexClient:
             if encounters_csv.exists():
                 df_e = pd.read_csv(encounters_csv)
                 df_e.to_sql("ENCOUNTERS", self.sqlite_conn, index=False, if_exists="replace")
+
+            # Load MDM & Prior Auth if available
+            pa_csv = source_dir / "prior_auth_denials.csv"
+            if pa_csv.exists():
+                df_pa = pd.read_csv(pa_csv)
+                df_pa.to_sql("PRIOR_AUTH_DENIALS", self.sqlite_conn, index=False, if_exists="replace")
 
             # Create in-memory PATIENT_MEMBER_360_VIEW in SQLite using standard window functions
             view_sql = """
@@ -150,10 +183,23 @@ class SnowflakeCortexClient:
                 COALESCE(cm.TOTAL_CLAIMS_COUNT, 0) AS TOTAL_CLAIMS_COUNT,
                 COALESCE(cm.TOTAL_BILLED_CHARGES, 0.0) AS TOTAL_BILLED_CHARGES,
                 COALESCE(cm.TOTAL_PAID_AMOUNT, 0.0) AS TOTAL_PAID_AMOUNT,
+                COALESCE(cm.TOTAL_PAID_AMOUNT, 0.0) AS CUMULATIVE_PAID_AMOUNT,
                 CASE WHEN egfr.LATEST_EGFR < 30.0 THEN 1 ELSE 0 END AS FLAG_EGFR_BELOW_30,
                 CASE WHEN a1c.LATEST_HBA1C >= 9.0 THEN 1 ELSE 0 END AS FLAG_HBA1C_UNCONTROLLED,
                 CASE WHEN cm.TOTAL_PAID_AMOUNT > 30000.0 THEN 1 ELSE 0 END AS FLAG_HIGH_UTILIZER_RISK,
-                CASE WHEN egfr.LATEST_EGFR < 30.0 AND p.ACTIVE_MEDICATIONS LIKE '%Metformin%' THEN 1 ELSE 0 END AS FLAG_METFORMIN_CONTRAINDICATED
+                CASE WHEN egfr.LATEST_EGFR < 30.0 AND p.ACTIVE_MEDICATIONS LIKE '%Metformin%' THEN 1 ELSE 0 END AS FLAG_METFORMIN_CONTRAINDICATED,
+                CASE 
+                    WHEN egfr.LATEST_EGFR < 30.0 AND p.ACTIVE_MEDICATIONS LIKE '%Metformin%' 
+                        THEN 'CRITICAL_CONTRAINDICATION: Metformin Boxed Warning in Severe Renal Failure (eGFR < 30)'
+                    WHEN p.ACTIVE_MEDICATIONS LIKE '%Apixaban%' AND p.ACTIVE_MEDICATIONS LIKE '%Ibuprofen%' 
+                        THEN 'MAJOR_INTERACTION: Direct Oral Anticoagulant + NSAID Elevated Bleeding Risk'
+                    ELSE 'NONE_DETECTED'
+                END AS CONTRAINDICATION_ALERT,
+                CASE 
+                    WHEN p.CHRONIC_CONDITIONS LIKE '%Diabetes%' AND (julianday('now') - julianday(COALESCE(a1c.LATEST_HBA1C_DATE, '2020-01-01')) > 365)
+                        THEN 'CARE_GAP_OPEN: Overdue for Annual HEDIS NQF-0059 HbA1c Screening'
+                    ELSE 'COMPLIANT'
+                END AS HEDIS_CARE_GAP_STATUS
             FROM PATIENTS p
             LEFT JOIN egfr_latest egfr ON p.PATIENT_ID = egfr.PATIENT_ID AND egfr.rn = 1
             LEFT JOIN creat_latest creat ON p.PATIENT_ID = creat.PATIENT_ID AND creat.rn = 1
@@ -190,7 +236,15 @@ class SnowflakeCortexClient:
                 if query.strip().upper().startswith(("INSERT", "UPDATE", "DELETE", "CREATE", "DROP")):
                     cur.close()
                     return pd.DataFrame()
-                df = cur.fetch_pandas_all()
+                try:
+                    df = cur.fetch_pandas_all()
+                except Exception:
+                    if cur.description:
+                        cols = [c[0] for c in cur.description]
+                        rows = cur.fetchall()
+                        df = pd.DataFrame(rows, columns=cols)
+                    else:
+                        df = pd.DataFrame()
                 cur.close()
                 return df
             except Exception as e:
