@@ -45,11 +45,11 @@
 **Description:** Stage all clean files and commit with a structured semantic commit message, then push to `origin main`.
 
 **Acceptance criteria:**
-- [ ] Clean commit created.
-- [ ] `git push origin main` executed successfully.
+- [x] Clean commit created.
+- [x] `git push origin main` executed successfully.
 
 **Verification:**
-- [ ] `git status` returns clean working tree.
+- [x] `git status` returns clean working tree.
 
 **Dependencies:** Tasks 1, 2  
 **Files likely touched:**
