@@ -71,17 +71,17 @@
 **Description:** Create a Python script (`scripts/generate_submission_deck.py`) that uses `python-pptx` to build a complete 7-slide submission deck matching `Prototype Submission Template _ CoCo CLI Hackathon GCC Edition.pptx` branding.
 
 **Acceptance criteria:**
-- [ ] Slide 1: Title & Team Details (AegisCortex AI, Shivansh Srivastava, Problem Statement).
-- [ ] Slide 2: Problem Brief & Domain Context ($1.2T waste, compliance risk, disjointed workflows).
-- [ ] Slide 3: Proposed Architecture & Modular CoCo CLI Skills (Snowflake Cortex AI, Lakehouse, Multi-Agent Swarm).
-- [ ] Slide 4: Persona Matrix & Solution Capabilities.
-- [ ] Slide 5: Website Review: Commercial & Market Access (incorporating screenshots from `COCO Hackathon/Sales rep` and `COCO Hackathon/Regional`).
-- [ ] Slide 6: Website Review: Clinical Affairs & Executive Leadership (incorporating screenshots from `COCO Hackathon/National Medical Affairs` and `COCO Hackathon/Cheif_commercial_officer`).
-- [ ] Slide 7: Impact Statement & Beyond the Demo (quantifiable metrics, 82% overturn, 100% compliance).
+- [x] Slide 1: Title & Team Details (AegisCortex AI, Shivansh Srivastava, Problem Statement).
+- [x] Slide 2: Problem Brief & Domain Context ($1.2T waste, compliance risk, disjointed workflows).
+- [x] Slide 3: Proposed Architecture & Modular CoCo CLI Skills (Snowflake Cortex AI, Lakehouse, Multi-Agent Swarm).
+- [x] Slide 4: Persona Matrix & Solution Capabilities.
+- [x] Slide 5: Website Review: Commercial & Market Access (incorporating screenshots from `COCO Hackathon/Sales rep` and `COCO Hackathon/Regional`).
+- [x] Slide 6: Website Review: Clinical Affairs & Executive Leadership (incorporating screenshots from `COCO Hackathon/National Medical Affairs` and `COCO Hackathon/Cheif_commercial_officer`).
+- [x] Slide 7: Impact Statement & Beyond the Demo (quantifiable metrics, 82% overturn, 100% compliance).
 
 **Verification:**
-- [ ] Script runs and outputs `Prototype_Submission_AegisCortex_AI_CoCo_Hackathon.pptx`.
-- [ ] File inspected for valid shapes, text boxes, and embedded images.
+- [x] Script runs and outputs `Prototype_Submission_AegisCortex_AI_CoCo_Hackathon.pptx`.
+- [x] File inspected for valid shapes, text boxes, and embedded images.
 
 **Dependencies:** None  
 **Files likely touched:**
@@ -93,7 +93,7 @@
 ---
 
 ## Checkpoint 2: Presentation Deck Ready
-- [ ] Presentation generated and verified with 7 complete slides and embedded screenshots.
+- [x] Presentation generated and verified with 7 complete slides and embedded screenshots.
 
 ---
 
@@ -103,13 +103,13 @@
 **Description:** Create `scripts/coco_cli_demo.py` to run an automated, visually impressive terminal recording showing Input → Processing → Output across 3 modular skills: Ingestion/Metrics, Deterministic Guardrail Firewall, and Cortex AI Strategic Synthesis.
 
 **Acceptance criteria:**
-- [ ] CLI runs in automated demo mode with realistic typing/timing or prompt flags.
-- [ ] Demonstrates Skill 1: Live Snowflake Lakehouse Ingestion & Volume Metrics.
-- [ ] Demonstrates Skill 2: Deterministic Regulatory Guardrail Firewall (21 CFR § 202.1 & OPDP enforcement).
-- [ ] Demonstrates Skill 3: Contextual Snowflake Cortex AI Synthesis (`llama3.3-70b`) translating metrics into concrete actions.
+- [x] CLI runs in automated demo mode with realistic typing/timing or prompt flags.
+- [x] Demonstrates Skill 1: Live Snowflake Lakehouse Ingestion & Volume Metrics.
+- [x] Demonstrates Skill 2: Deterministic Regulatory Guardrail Firewall (21 CFR § 202.1 & OPDP enforcement).
+- [x] Demonstrates Skill 3: Contextual Snowflake Cortex AI Synthesis (`llama3.3-70b`) translating metrics into concrete actions.
 
 **Verification:**
-- [ ] Execute `python scripts/coco_cli_demo.py` and confirm clean, error-free output.
+- [x] Execute `python scripts/coco_cli_demo.py` and confirm clean, error-free output.
 
 **Dependencies:** None  
 **Files likely touched:**
@@ -123,12 +123,12 @@
 **Description:** Create `docs/HACKATHON_DEMO_VIDEO_GUIDE.md` containing a 3.5-minute scene-by-scene storyboard, screen recording visual cues, and a word-for-word spoken voiceover script.
 
 **Acceptance criteria:**
-- [ ] Timeline covers exactly 3 to 4 minutes (fits the 3-5 minute constraint).
-- [ ] Clear visual instructions for what to show on screen at each second (CoCo CLI terminal recording vs. live Web UI interactions).
-- [ ] High-impact, professional spoken script emphasizing GCC healthcare transformation, Snowflake Cortex AI, and autonomous multi-agent governance.
+- [x] Timeline covers exactly 3 to 4 minutes (fits the 3-5 minute constraint).
+- [x] Clear visual instructions for what to show on screen at each second (CoCo CLI terminal recording vs. live Web UI interactions).
+- [x] High-impact, professional spoken script emphasizing GCC healthcare transformation, Snowflake Cortex AI, and autonomous multi-agent governance.
 
 **Verification:**
-- [ ] Review script word count and pacing (~450-550 words for 3.5 minutes).
+- [x] Review script word count and pacing (~450-550 words for 3.5 minutes).
 
 **Dependencies:** Tasks 4, 5  
 **Files likely touched:**
@@ -139,7 +139,8 @@
 ---
 
 ## Checkpoint 3: Complete Hackathon Package Ready
-- [ ] Git repo clean and pushed.
-- [ ] Submission PPTX finalized and visually reviewed.
-- [ ] CoCo CLI workflow script operational.
-- [ ] Video guide and script ready for immediate recording.
+- [x] Git repo clean and pushed.
+- [x] Submission PPTX finalized and visually reviewed.
+- [x] CoCo CLI workflow script operational.
+- [x] Video guide and script ready for immediate recording.
+
