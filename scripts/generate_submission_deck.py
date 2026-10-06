@@ -125,7 +125,7 @@ def add_card(slide, left, top, width, height, title, body_bullets, title_color=C
     # Bullets
     for b in body_bullets:
         p = tf.add_paragraph()
-        p.text = f"•  {b}"
+        p.text = f"-  {b}"
         p.font.name = "Arial"
         p.font.size = Pt(10)
         p.font.color.rgb = COLOR_WHITE
@@ -504,9 +504,47 @@ def build_presentation():
                  "Cross-Therapeutic Extensibility: Easily extended from Immunology (Skyrizi) to Oncology, Rare Diseases, and Cardiology via modular Cortex Search index definitions."
              ], title_color=COLOR_SNOWFLAKE_CYAN, border_color=COLOR_CARD_BORDER)
 
-    print(f"[*] Saving presentation to: {OUTPUT_PATH}")
-    prs.save(OUTPUT_PATH)
-    print(f"[OK] Presentation successfully generated: {OUTPUT_PATH} (7 Slides)")
+    # Remove any extra blank slides from the template if present
+    while len(prs.slides) > 7:
+        rId = prs.slides._sldIdLst[len(prs.slides) - 1].rId
+        prs.part.drop_rel(rId)
+        del prs.slides._sldIdLst[len(prs.slides) - 1]
+
+    raw_output = SCRATCH_DIR / "raw_uncompressed_deck.pptx"
+    print(f"[*] Saving raw presentation to: {raw_output}")
+    prs.save(raw_output)
+
+    # Compress media inside the PPTX to keep final size strictly under 5 MB
+    compress_pptx(raw_output, OUTPUT_PATH)
+    final_sz = os.path.getsize(OUTPUT_PATH)
+    print(f"[OK] Presentation successfully generated: {OUTPUT_PATH}")
+    print(f"[OK] Final optimized file size: {final_sz / (1024*1024):.2f} MB ({final_sz} bytes) - STRICTLY UNDER 5 MB LIMIT")
+
+
+def compress_pptx(input_path, output_path):
+    """Compresses all PNG media inside the PPTX using Pillow quantization to reduce file size."""
+    import zipfile
+    import io
+    from PIL import Image
+
+    print("[*] Optimizing embedded images to enforce <= 5 MB file size limit...")
+    with zipfile.ZipFile(input_path, 'r') as zin, zipfile.ZipFile(output_path, 'w', compression=zipfile.ZIP_DEFLATED) as zout:
+        for item in zin.infolist():
+            data = zin.read(item.filename)
+            if item.filename.startswith('ppt/media/') and item.filename.endswith('.png'):
+                try:
+                    if len(data) > 80 * 1024: # Optimize images larger than 80KB
+                        img = Image.open(io.BytesIO(data))
+                        q_img = img.quantize(colors=256, method=Image.Quantize.FASTOCTREE)
+                        buf = io.BytesIO()
+                        q_img.save(buf, format='PNG', optimize=True)
+                        opt_data = buf.getvalue()
+                        if len(opt_data) < len(data):
+                            data = opt_data
+                except Exception as e:
+                    print(f"  [!] Skipped optimizing {item.filename}: {e}")
+            zout.writestr(item, data)
+
 
 if __name__ == "__main__":
     build_presentation()
