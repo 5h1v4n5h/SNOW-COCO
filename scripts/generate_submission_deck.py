@@ -208,7 +208,7 @@ def build_presentation():
                 shape.text_frame.paragraphs[0].font.size = Pt(12)
                 shape.text_frame.paragraphs[0].font.color.rgb = COLOR_WHITE
             elif "Team Leader Name" in txt:
-                shape.text_frame.paragraphs[0].text = "Team Leader Name :  Shivansh Srivastava"
+                shape.text_frame.paragraphs[0].text = "Team Leader Name :  Shivansh Sharma"
                 shape.text_frame.paragraphs[0].font.size = Pt(12)
                 shape.text_frame.paragraphs[0].font.color.rgb = COLOR_WHITE
             elif "Team Size" in txt:
@@ -224,9 +224,9 @@ def build_presentation():
     demo_badge = s1.shapes.add_textbox(Inches(0.45), Inches(4.55), Inches(9.0), Inches(0.45))
     tf_demo = demo_badge.text_frame
     p_demo = tf_demo.paragraphs[0]
-    p_demo.text = "🌐 Live Public URL: https://weed-paxil-bizarre-brings.trycloudflare.com  |  AWS Cloud: http://44.211.147.20:8080"
+    p_demo.text = "🌐 Live AWS Cloud Production URL: http://44.211.147.20:8080"
     p_demo.font.name = "Arial"
-    p_demo.font.size = Pt(10.5)
+    p_demo.font.size = Pt(11)
     p_demo.font.bold = True
     p_demo.font.color.rgb = COLOR_EMERALD
 
