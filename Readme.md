@@ -1,7 +1,7 @@
 # AegisCortex AI: Enterprise Pharma & Clinical Regulatory Multi-Agent Copilot
 *Built Natively on Snowflake Cortex AI for the Snowflake CoCo CLI Hackathon 2026 – GCC Edition*
 
-[![AWS Deployment](https://img.shields.io/badge/AWS%20ECS-Live%20Online-FF9900?style=for-the-badge&logo=amazon-aws&logoColor=white)](http://44.211.147.20:8080)
+[![AWS Deployment](https://img.shields.io/badge/AWS%20ECS-Live%20Online-FF9900?style=for-the-badge&logo=amazon-aws&logoColor=white)](http://18.204.69.80:8080)
 [![Snowflake Cortex](https://img.shields.io/badge/Snowflake-Cortex%20AI-29B5E8?style=for-the-badge&logo=snowflake&logoColor=white)](https://www.snowflake.com/en/data-cloud/cortex/)
 [![LLM Engine](https://img.shields.io/badge/Cortex%20LLM-llama3.3--70b-6366F1?style=for-the-badge)](https://docs.snowflake.com/en/user-guide/snowflake-cortex/llm-functions)
 [![Cortex Search](https://img.shields.io/badge/Cortex%20Search-snowflake--arctic--embed--m--v1.5-blue?style=for-the-badge)](https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-search/cortex-search-overview)
@@ -13,7 +13,7 @@
 ## 🌐 Live Interactive Deployments
 
 🚀 **Access the live application directly (No login or credentials required):**  
-* ☁️ **AWS Cloud Production (ECS Fargate)**: **[http://44.211.147.20:8080](http://44.211.147.20:8080)**  
+* ☁️ **AWS Cloud Production (ECS Fargate)**: **[http://18.204.69.80:8080](http://18.204.69.80:8080)**  
 
 Experience the live multi-persona interface, dynamic territory dashboards, instant Cortex AI clinical synthesis (`llama3.3-70b`), and real-time guardrail enforcement on live Snowflake Lakehouse data.
 
@@ -350,3 +350,4 @@ docker run -p 8080:8080 --env-file .env aegis-cortex-copilot:latest
 - **Track**: Snowflake CoCo CLI Hackathon 2026 – GCC Edition
 - **Team Lead**: Shivansh Shivansh
 - **Repository**: [https://github.com/5h1v4n5h/SNOW-COCO](https://github.com/5h1v4n5h/SNOW-COCO)
+

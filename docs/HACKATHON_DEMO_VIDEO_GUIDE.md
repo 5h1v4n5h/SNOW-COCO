@@ -11,7 +11,7 @@
   1. **Skill 1**: Live Longitudinal Lakehouse Ingestion & Volume Metrics
   2. **Skill 2**: Deterministic Regulatory Guardrail Firewall (FDA OPDP 21 CFR § 202.1)
   3. **Skill 3**: Market Access Prior Auth Denial Triage & Cortex AI Appeal Dossier Synthesis
-- **Companion Experience**: Seamless handoff between **CoCo CLI Terminal** and **Live Production Web UI** (`http://44.211.147.20:8080`).
+- **Companion Experience**: Seamless handoff between **CoCo CLI Terminal** and **Live Production Web UI** (`http://18.204.69.80:8080`).
 
 ---
 
@@ -31,7 +31,7 @@
 ## 🎙️ Word-for-Word Spoken Narration Script
 
 ### Scene 1: Introduction & The $1.2T Regulated Healthcare Problem (0:00 – 0:35)
-> **[VISUAL ON SCREEN]**: Show the Presentation Title Slide (`Slide 1`) or open the live Web UI at `http://44.211.147.20:8080` showing the multi-persona landing page.
+> **[VISUAL ON SCREEN]**: Show the Presentation Title Slide (`Slide 1`) or open the live Web UI at `http://18.204.69.80:8080` showing the multi-persona landing page.
 >
 > **[VOICEOVER SCRIPT]**:  
 > *"Hello judges. Healthcare systems and biopharmaceutical enterprises lose over $1.2 Trillion annually to preventable adverse drug events, unaddressed chronic care gaps, and formulary access friction.*  
@@ -87,7 +87,7 @@
 ---
 
 ### Scene 5: Live Web Command Center Verification (2:45 – 3:15)
-> **[VISUAL ON SCREEN]**: Switch to the browser at `http://44.211.147.20:8080/`.
+> **[VISUAL ON SCREEN]**: Switch to the browser at `http://18.204.69.80:8080/`.
 > - Click on **Sarah Jenkins (Sales Rep)**: Show the territory targets and approved detailing KPIs.
 > - Switch to **Dr. Eleanor Vance (MSL)**: Show the Pharmacovigilance Safety Radar and eGFR < 30 alert.
 > - Switch to **Marcus Vance (CCO)**: Show the Enterprise Velocity chart and Safe Harbor Ledger.
@@ -117,7 +117,7 @@
    - Set screen resolution to **1920 × 1080 (1080p)**.
    - Have two windows ready:
      - **Window 1 (Terminal)**: Command Prompt / PowerShell / Windows Terminal with a clean dark background and font size 14-16 pt.
-     - **Window 2 (Browser)**: Chrome or Edge open at `http://44.211.147.20:8080` or `https://weed-paxil-bizarre-brings.trycloudflare.com`.
+     - **Window 2 (Browser)**: Chrome or Edge open at `http://18.204.69.80:8080` or `https://weed-paxil-bizarre-brings.trycloudflare.com`.
 2. **Start Screen Recording**:
    - Use OBS Studio, Loom, or Windows Game Bar (`Win + G`).
 3. **Run the Demonstration**:

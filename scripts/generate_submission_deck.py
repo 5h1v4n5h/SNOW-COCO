@@ -224,7 +224,7 @@ def build_presentation():
     demo_badge = s1.shapes.add_textbox(Inches(0.45), Inches(4.55), Inches(9.0), Inches(0.45))
     tf_demo = demo_badge.text_frame
     p_demo = tf_demo.paragraphs[0]
-    p_demo.text = "🌐 Live AWS Cloud Production URL: http://44.211.147.20:8080"
+    p_demo.text = "🌐 Live AWS Cloud Production URL: http://18.204.69.80:8080"
     p_demo.font.name = "Arial"
     p_demo.font.size = Pt(11)
     p_demo.font.bold = True
